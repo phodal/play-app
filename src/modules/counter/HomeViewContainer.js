@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import CounterView from './CounterView';
+import HomeView from './HomeView';
 import {NavigationActions} from 'react-navigation';
 import * as CounterStateActions from '../counter/CounterState';
 
@@ -15,4 +15,4 @@ export default connect(
       counterStateActions: bindActionCreators(CounterStateActions, dispatch)
     };
   }
-)(CounterView);
+)(HomeView);

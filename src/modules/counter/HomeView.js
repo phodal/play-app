@@ -9,8 +9,8 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-class CounterView extends Component {
-  static displayName = 'CounterView';
+class HomeView extends Component {
+  static displayName = 'HomeView';
 
   static navigationOptions = {
     title: '首页推荐',
@@ -169,4 +169,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CounterView;
+export default HomeView;
