@@ -4,7 +4,7 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
 
-const headerColor = '#39babd';
+const headerColor = '#384452';
 const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
@@ -24,7 +24,7 @@ export const MainScreenNavigator = TabNavigator({
 });
 
 MainScreenNavigator.navigationOptions = {
-  title: 'Pepperoni App Template',
+  title: '一起玩点什么',
   header: {
     titleStyle: {color: 'white'},
     style: {
