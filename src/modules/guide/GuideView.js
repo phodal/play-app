@@ -20,7 +20,7 @@ class GuideView extends Component {
     title: '指南',
     tabBar: () => ({
       icon: (props) => (
-                <Icon name='color-lens' size={24} color={props.tintColor} />
+                <Icon name='explore' size={24} color={props.tintColor} />
             )
     }),
         // TODO: move this into global config?

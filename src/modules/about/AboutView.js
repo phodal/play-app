@@ -16,7 +16,7 @@ class AboutView extends Component {
     title: '关于',
     tabBar: () => ({
       icon: (props) => (
-                <Icon name='color-lens' size={24} color={props.tintColor} />
+                <Icon name='info' size={24} color={props.tintColor} />
             )
     }),
     header: {
