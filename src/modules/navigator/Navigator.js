@@ -3,6 +3,8 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 
 import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
+import GuideViewContainer from '../guide/GuideViewContainer';
+import AboutViewContainer from '../about/AboutViewContainer';
 
 const headerColor = '#384452';
 const activeColor = 'white';
@@ -37,7 +39,9 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ColorViewContainer}
+  InfiniteColorStack: {screen: ColorViewContainer},
+  Guide: {screen: GuideViewContainer},
+  About: {screen: AboutViewContainer}
 });
 
 export default AppNavigator;

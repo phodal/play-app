@@ -1,32 +1,36 @@
 import React, {PropTypes, Component} from 'react';
 import {
-  Button,
-  View,
-  StyleSheet
+    Button,
+    View,
+    StyleSheet
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const color = () => Math.floor(255 * Math.random());
 
-class ColorView extends Component {
-  static displayName = '玩法';
+/**
+ * Sample view to demonstrate StackNavigator
+ * @TODO remove this module in a live application.
+ */
+class GuideView extends Component {
+  static displayName = '指南';
 
   static navigationOptions = {
-    title: 'Colors!',
+    title: '指南',
     tabBar: () => ({
       icon: (props) => (
-        <Icon name='color-lens' size={24} color={props.tintColor} />
-      )
+                <Icon name='color-lens' size={24} color={props.tintColor} />
+            )
     }),
-    // TODO: move this into global config?
+        // TODO: move this into global config?
     header: {
       tintColor: 'white',
       style: {
         backgroundColor: '#39babd'
       }
     }
-  };
+  }
 
   static propTypes = {
     navigate: PropTypes.func.isRequired
@@ -46,9 +50,9 @@ class ColorView extends Component {
   render() {
     const buttonText = 'Open in Stack Navigator';
     return (
-      <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
-      </View>
+            <View style={[styles.container, {backgroundColor: this.state.background}]}>
+                <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
+            </View>
     );
   }
 }
@@ -61,4 +65,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default GuideView;

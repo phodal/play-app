@@ -1,25 +1,24 @@
 import React, {PropTypes, Component} from 'react';
 import {
-  Button,
-  View,
-  StyleSheet
+    Button,
+    View,
+    StyleSheet
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const color = () => Math.floor(255 * Math.random());
 
-class ColorView extends Component {
-  static displayName = '玩法';
+class AboutView extends Component {
+  static displayName = '关于';
 
   static navigationOptions = {
-    title: 'Colors!',
+    title: '关于',
     tabBar: () => ({
       icon: (props) => (
-        <Icon name='color-lens' size={24} color={props.tintColor} />
-      )
+                <Icon name='color-lens' size={24} color={props.tintColor} />
+            )
     }),
-    // TODO: move this into global config?
     header: {
       tintColor: 'white',
       style: {
@@ -46,9 +45,9 @@ class ColorView extends Component {
   render() {
     const buttonText = 'Open in Stack Navigator';
     return (
-      <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
-      </View>
+            <View style={[styles.container, {backgroundColor: this.state.background}]}>
+                <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
+            </View>
     );
   }
 }
@@ -61,4 +60,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default AboutView;

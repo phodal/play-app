@@ -13,10 +13,10 @@ class CounterView extends Component {
   static displayName = 'CounterView';
 
   static navigationOptions = {
-    title: 'Counter',
+    title: '首页推荐',
     tabBar: () => ({
       icon: (props) => (
-        <Icon name='plus-one' size={24} color={props.tintColor} />
+        <Icon name='home' size={24} color={props.tintColor} />
       )
     })
   }
