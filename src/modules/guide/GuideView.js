@@ -14,7 +14,7 @@ const color = () => Math.floor(255 * Math.random());
  * @TODO remove this module in a live application.
  */
 class GuideView extends Component {
-  static displayName = '指南';
+  static displayName = 'GuideView';
 
   static navigationOptions = {
     title: '指南',
@@ -44,7 +44,7 @@ class GuideView extends Component {
   }
 
   open = () => {
-    this.props.navigate({routeName: 'InfiniteColorStack'});
+    this.props.navigate({routeName: 'Guide'});
   };
 
   render() {

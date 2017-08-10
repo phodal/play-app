@@ -10,20 +10,24 @@ const headerColor = '#384452';
 const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
-export const MainScreenNavigator = TabNavigator({
-  Counter: {screen: CounterViewContainer},
-  Color: {screen: ColorViewContainer}
-}, {
-  tabBarOptions: {
-    ...Platform.select({
-      android: {
-        activeTintColor: activeColor,
-        indicatorStyle: {backgroundColor: activeColor},
-        style: {backgroundColor: headerColor}
-      }
-    })
-  }
-});
+export const MainScreenNavigator = TabNavigator(
+  {
+    Counter: {screen: CounterViewContainer},
+    Color: {screen: ColorViewContainer},
+    Guide: {screen: GuideViewContainer},
+    About: {screen: AboutViewContainer}
+  },
+  {
+    tabBarOptions: {
+      ...Platform.select({
+        android: {
+          activeTintColor: activeColor,
+          indicatorStyle: {backgroundColor: activeColor},
+          style: {backgroundColor: headerColor}
+        }
+      })
+    }
+  });
 
 MainScreenNavigator.navigationOptions = {
   title: '一起玩点什么',
@@ -39,7 +43,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ColorViewContainer},
+  Color: {screen: ColorViewContainer},
   Guide: {screen: GuideViewContainer},
   About: {screen: AboutViewContainer}
 });

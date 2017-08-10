@@ -10,16 +10,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const color = () => Math.floor(255 * Math.random());
 
 class ColorView extends Component {
-  static displayName = '玩法';
+  static displayName = 'ColorView';
 
   static navigationOptions = {
-    title: 'Colors!',
+    title: '玩法',
     tabBar: () => ({
       icon: (props) => (
         <Icon name='color-lens' size={24} color={props.tintColor} />
       )
     }),
-    // TODO: move this into global config?
     header: {
       tintColor: 'white',
       style: {
@@ -40,7 +39,7 @@ class ColorView extends Component {
   }
 
   open = () => {
-    this.props.navigate({routeName: 'InfiniteColorStack'});
+    this.props.navigate({routeName: 'Color'});
   };
 
   render() {

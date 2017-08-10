@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const color = () => Math.floor(255 * Math.random());
 
 class AboutView extends Component {
-  static displayName = '关于';
+  static displayName = 'AboutView';
 
   static navigationOptions = {
     title: '关于',
@@ -39,7 +39,7 @@ class AboutView extends Component {
   }
 
   open = () => {
-    this.props.navigate({routeName: 'InfiniteColorStack'});
+    this.props.navigate({routeName: 'About'});
   };
 
   render() {
