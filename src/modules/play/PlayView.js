@@ -9,8 +9,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const color = () => Math.floor(255 * Math.random());
 
-class ColorView extends Component {
-  static displayName = 'ColorView';
+class PlayView extends Component {
+  static displayName = 'PlayView';
 
   static navigationOptions = {
     title: '玩法',
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default PlayView;

@@ -2,7 +2,7 @@ import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
 import HomeViewContainer from '../counter/HomeViewContainer';
-import ColorViewContainer from '../play/ColorViewContainer';
+import PlayViewContainer from '../play/PlayViewContainer';
 import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
 
@@ -13,7 +13,7 @@ const activeColor = 'white';
 export const MainScreenNavigator = TabNavigator(
   {
     Counter: {screen: HomeViewContainer},
-    Color: {screen: ColorViewContainer},
+    Color: {screen: PlayViewContainer},
     Guide: {screen: GuideViewContainer},
     About: {screen: AboutViewContainer}
   },
@@ -43,7 +43,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  Color: {screen: ColorViewContainer},
+  Color: {screen: PlayViewContainer},
   Guide: {screen: GuideViewContainer},
   About: {screen: AboutViewContainer}
 });
