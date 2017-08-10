@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import axios from 'axios';
 
 class HomeView extends Component {
   static displayName = 'HomeView';
@@ -17,6 +18,24 @@ class HomeView extends Component {
   static propTypes = {
     navigate: PropTypes.func.isRequired
   };
+
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+      data: []
+    };
+  }
+
+  componentWillMount() {
+    axios.get('https://www.wandianshenme.com/api/play/')
+      .then(response => {
+        this.setState({
+          data: response.data,
+          loading: false
+        });
+      });
+  }
 
   render() {
     return (
