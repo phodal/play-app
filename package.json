@@ -29,12 +29,15 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": ["<rootDir>/test/setup.js"],
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-navigation)"
     ]
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",
     "immutable": "^3.7.6",
