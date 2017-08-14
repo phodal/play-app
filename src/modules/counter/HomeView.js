@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
+import Loading from '../../wdui/loading/Loading';
 
 class HomeView extends Component {
   static displayName = 'HomeView';
@@ -38,6 +39,11 @@ class HomeView extends Component {
   }
 
   render() {
+
+    if (this.state.loading) {
+      return <Loading text={'数据加载中'} />;
+    }
+
     return (
       <View style={styles.container} />
     );
