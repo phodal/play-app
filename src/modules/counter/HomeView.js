@@ -9,11 +9,11 @@ class HomeView extends Component {
 
   static navigationOptions = {
     title: '首页推荐',
-    tabBar: () => ({
+    tabBar: {
       icon: (props) => (
         <Icon name='home' size={24} color={props.tintColor} />
       )
-    })
+    }
   };
 
   static propTypes = {
@@ -41,6 +41,7 @@ class HomeView extends Component {
   render() {
 
     if (this.state.loading) {
+      console.log(this.state.loading)
       return <Loading text={'数据加载中'} />;
     }
 
