@@ -23,13 +23,6 @@ class GuideView extends Component {
         <Icon name='explore' size={24} color={props.tintColor}/>
       );
     },
-        // TODO: move this into global config?
-    header: {
-      tintColor: 'white',
-      style: {
-        backgroundColor: '#39babd'
-      }
-    }
   }
 
   static propTypes = {

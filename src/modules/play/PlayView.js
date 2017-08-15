@@ -16,13 +16,7 @@ class PlayView extends Component {
     title: '玩法',
     tabBarIcon: (props) => (
         <Icon name='color-lens' size={24} color={props.tintColor} />
-      ),
-    header: {
-      tintColor: 'white',
-      style: {
-        backgroundColor: '#39babd'
-      }
-    }
+      )
   };
 
   static propTypes = {

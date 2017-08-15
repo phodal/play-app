@@ -15,14 +15,8 @@ class AboutView extends Component {
   static navigationOptions = {
     title: '关于',
     tabBarIcon: (props) => (
-                <Icon name='info' size={24} color={props.tintColor} />
-            ),
-    header: {
-      tintColor: 'white',
-      style: {
-        backgroundColor: '#39babd'
-      }
-    }
+        <Icon name='info' size={24} color={props.tintColor} />
+    )
   };
 
   static propTypes = {

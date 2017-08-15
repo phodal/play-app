@@ -30,14 +30,7 @@ export const MainScreenNavigator = TabNavigator(
   });
 
 MainScreenNavigator.navigationOptions = {
-  title: '一起玩点什么',
-  header: {
-    titleStyle: {color: 'white'},
-    style: {
-      backgroundColor: headerColor,
-      elevation: 0 // disable header elevation when TabNavigator visible
-    }
-  }
+  title: '一起玩点什么'
 };
 
 // Root navigator is a StackNavigator
