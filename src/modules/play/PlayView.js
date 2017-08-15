@@ -14,11 +14,9 @@ class PlayView extends Component {
 
   static navigationOptions = {
     title: '玩法',
-    tabBar: {
-      icon: (props) => (
+    tabBarIcon: (props) => (
         <Icon name='color-lens' size={24} color={props.tintColor} />
-      )
-    },
+      ),
     header: {
       tintColor: 'white',
       style: {

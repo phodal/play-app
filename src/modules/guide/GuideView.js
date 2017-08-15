@@ -18,10 +18,10 @@ class GuideView extends Component {
 
   static navigationOptions = {
     title: '指南',
-    tabBar: {
-      icon: (props) => (
-                <Icon name='explore' size={24} color={props.tintColor} />
-            )
+    tabBarIcon: (props) => {
+      return (
+        <Icon name='explore' size={24} color={props.tintColor}/>
+      );
     },
         // TODO: move this into global config?
     header: {
