@@ -1,5 +1,11 @@
 import React, {Component, PropTypes} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+  TouchableHighlight
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import Loading from '../../wdui/loading/Loading';
@@ -37,14 +43,33 @@ class HomeView extends Component {
       });
   }
 
-  render() {
+  keyExtractor = (item, index) => `key${index}`;
 
+  renderList = ({item}) => (
+    <TouchableHighlight
+      key={this.keyExtractor}>
+      <View style={{backgroundColor: 'white'}}>
+        <Text>{ item.title }</Text>
+        <Text>{ item.description }</Text>
+        <Text>{ item.updated }</Text>
+        <Text>{ item.id }</Text>
+      </View>
+    </TouchableHighlight>
+  );
+
+  render() {
     if (this.state.loading) {
       return <Loading text={'数据加载中'} />;
     }
 
     return (
-      <View style={styles.container} />
+      <View style={styles.container}>
+        <FlatList
+          keyExtractor={this.keyExtractor}
+          data={this.state.data.results}
+          renderItem={this.renderList}
+        />
+      </View>
     );
   }
 }
