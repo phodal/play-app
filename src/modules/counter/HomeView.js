@@ -4,6 +4,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
   TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -45,17 +46,30 @@ class HomeView extends Component {
 
   keyExtractor = (item, index) => `key${index}`;
 
-  renderList = ({item}) => (
-    <TouchableHighlight
-      key={this.keyExtractor}>
-      <View style={{backgroundColor: 'white'}}>
-        <Text>{ item.title }</Text>
-        <Text>{ item.description }</Text>
-        <Text>{ item.updated }</Text>
-        <Text>{ item.id }</Text>
-      </View>
-    </TouchableHighlight>
-  );
+  renderList = ({item}) => {
+    console.log('https://www.wandianshenme.com/static/media/' + item.featured_image);
+    return (
+      <TouchableHighlight
+        key={this.keyExtractor}>
+        <View style={{backgroundColor: 'white'}}>
+          <Text>{ item.title }</Text>
+          <Text>{ item.description }</Text>
+          <Text>{ item.updated }</Text>
+          <Text>{ item.id }</Text>
+          <Text>{ 'https://www.wandianshenme.com/static/media/' + item.featured_image }</Text>
+          { item.featured_image
+            ? <Image source={{
+              uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image,
+              cache: 'only-if-cached'
+            }}
+                     style={{width: 400, height: 200}}
+            />
+            : <Text>{ item.featured_image }</Text>
+          }
+        </View>
+      </TouchableHighlight>
+    );
+  };
 
   render() {
     if (this.state.loading) {
