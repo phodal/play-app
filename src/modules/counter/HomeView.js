@@ -75,25 +75,27 @@ class HomeView extends Component {
     return (
       <TouchableHighlight
         key={this.keyExtractor}>
-        <Card
-          title={ item.title }>
-          <View style={{paddingBottom: 15}}>
-            { item.featured_image
-              ? <FastImage
-                style={{width: deviceWidth - 60, height: (deviceWidth - 60) * 0.4}}
-                resizeMode={FastImage.resizeMode.cover}
-                source={{
-                  uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
-                }}
-              />
-              : <Text>{ item.featured_image }</Text>
-            }
-          </View>
+        <View>
+          <Card
+            title={ item.title }>
+            <View style={{paddingBottom: 15}}>
+              { item.featured_image
+                ? <FastImage
+                  style={{width: deviceWidth - 60, height: (deviceWidth - 60) * 0.4}}
+                  resizeMode={FastImage.resizeMode.cover}
+                  source={{
+                    uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
+                  }}
+                />
+                : <Text>{ item.featured_image }</Text>
+              }
+            </View>
 
-          <Text style={{marginBottom: 10}}>
-            { item.description }
-          </Text>
-        </Card>
+            <Text style={{marginBottom: 10}}>
+              { item.description }
+            </Text>
+          </Card>
+        </View>
       </TouchableHighlight>
     );
   };
