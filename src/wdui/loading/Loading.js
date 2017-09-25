@@ -1,19 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Text, ActivityIndicator} from 'react-native';
+import Spinner from 'react-native-spinkit';
+import {
+  View,
+  Text,
+  StyleSheet
+} from 'react-native';
 
-const Loading = ({text, transparent}) => (
-  <View
-    style={[
-      transparent && {backgroundColor: 'rgba(255,255,255,0.75)'}
-    ]}
-  >
-    <ActivityIndicator
-      animating
-      size={'large'}
-      color={transparent ? '#000' : '#AAA'}
-    />
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  spinner: {
+    marginBottom: 50
+  },
+  btn: {
+    marginTop: 20
+  },
+  text: {
+    color: 'white'
+  }
+});
 
+const Loading = ({text}) => (
+  <View style={styles.container}>
+    <Spinner style={styles.spinner} size={20} type={'Circle'} color={'#000'}/>
     {!!text && <Text>{text}</Text>}
   </View>
 );
