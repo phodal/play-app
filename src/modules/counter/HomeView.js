@@ -95,6 +95,7 @@ class HomeView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 0,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
