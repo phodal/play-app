@@ -44,8 +44,9 @@ class HomeView extends Component {
     axios.get('https://www.wandianshenme.com/api/play/')
       .then(response => {
         this.setState({
-          nextLink: response.next ? response.next : null,
           data: response.data,
+          plays: response.data.results,
+          nextLink: response.data.next ? response.data.next : null,
           loading: false
         });
       });
@@ -61,8 +62,9 @@ class HomeView extends Component {
     axios.get(this.state.nextLink)
       .then(response => {
         this.setState({
-          nextLink: response.next ? response.next : null,
-          data: this.state.data.concat(response.data),
+          data: response.data,
+          plays: this.state.plays.concat(response.data.results),
+          nextLink: response.data.next ? response.data.next : null,
           loading: false
         });
       });
@@ -110,7 +112,7 @@ class HomeView extends Component {
         <View>
           <FlatList
             keyExtractor={this.keyExtractor}
-            data={this.state.data.results}
+            data={this.state.plays}
             renderItem={this.renderList}
             onEndReached={this.onEndReached.bind(this)}
           />
