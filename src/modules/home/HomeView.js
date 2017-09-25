@@ -36,17 +36,30 @@ class HomeView extends Component {
       loading: true,
       nextLink: null,
       noMore: false,
+      isRefreshing: false,
       data: []
     };
   }
 
   componentWillMount() {
+    this.fetchData();
+  }
+
+  onRefresh() {
+    this.setState({
+      isRefreshing: true
+    });
+    this.fetchData();
+  }
+
+  fetchData() {
     axios.get('https://www.wandianshenme.com/api/play/')
       .then(response => {
         this.setState({
           data: response.data,
           plays: response.data.results,
           nextLink: response.data.next ? response.data.next : null,
+          isRefreshing: false,
           loading: false
         });
       });
@@ -73,7 +86,6 @@ class HomeView extends Component {
   keyExtractor = (item, index) => `key${index}`;
 
   renderList = ({item}) => {
-    console.log('https://www.wandianshenme.com/static/media/' + item.featured_image);
     return (
       <TouchableHighlight
         key={this.keyExtractor}>
@@ -113,7 +125,9 @@ class HomeView extends Component {
           <FlatList
             keyExtractor={this.keyExtractor}
             data={this.state.plays}
+            refreshing={this.state.isRefreshing}
             renderItem={this.renderList}
+            onRefresh={this.onRefresh.bind(this)}
             onEndReached={this.onEndReached.bind(this)}
           />
         </View>
