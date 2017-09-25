@@ -34,6 +34,8 @@ class HomeView extends Component {
     super();
     this.state = {
       loading: true,
+      nextLink: null,
+      noMore: false,
       data: []
     };
   }
@@ -41,9 +43,26 @@ class HomeView extends Component {
   componentWillMount() {
     axios.get('https://www.wandianshenme.com/api/play/')
       .then(response => {
-        console.log(response);
         this.setState({
+          nextLink: response.next ? response.next : null,
           data: response.data,
+          loading: false
+        });
+      });
+  }
+
+  onEndReached() {
+    if (!this.state.nextLink) {
+      this.setState({
+        noMore: true
+      });
+      return;
+    }
+    axios.get(this.state.nextLink)
+      .then(response => {
+        this.setState({
+          nextLink: response.next ? response.next : null,
+          data: this.state.data.concat(response.data),
           loading: false
         });
       });
@@ -91,7 +110,12 @@ class HomeView extends Component {
             keyExtractor={this.keyExtractor}
             data={this.state.data.results}
             renderItem={this.renderList}
+            onEndReached={this.onEndReached.bind(this)}
           />
+
+          { this.state.noMore
+            ? <View><Text>已无更多内容</Text></View> : <View />
+          }
         </View>
       </View>
     );
