@@ -4,6 +4,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Dimensions,
   TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -12,6 +13,8 @@ import FastImage from 'react-native-fast-image';
 
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
+
+const deviceWidth = Dimensions.get('window').width;
 
 class HomeView extends Component {
   static displayName = 'HomeView';
@@ -55,10 +58,10 @@ class HomeView extends Component {
         key={this.keyExtractor}>
         <Card
           title={ item.title }>
-          <View>
+          <View style={{paddingBottom: 15}}>
             { item.featured_image
               ? <FastImage
-                style={{width: 200, height: 100}}
+                style={{width: deviceWidth - 60, height: (deviceWidth - 60) * 0.4}}
                 resizeMode={FastImage.resizeMode.center}
                 source={{
                   uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
