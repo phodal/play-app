@@ -4,11 +4,12 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
+import FastImage from 'react-native-fast-image'
+
 import Loading from '../../wdui/loading/Loading';
 
 class HomeView extends Component {
@@ -59,8 +60,9 @@ class HomeView extends Component {
           <Text>{ 'https://www.wandianshenme.com/static/media/' + item.featured_image }</Text>
           <View>
             { item.featured_image
-              ? <Image
+              ? <FastImage
                 style={{width: 400, height: 200}}
+                resizeMode={FastImage.resizeMode.cover}
                 source={{
                   uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
                 }}
