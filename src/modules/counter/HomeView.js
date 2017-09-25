@@ -8,9 +8,10 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
-import FastImage from 'react-native-fast-image'
+import FastImage from 'react-native-fast-image';
 
 import Loading from '../../wdui/loading/Loading';
+import Card from '../../wdui/Card';
 
 class HomeView extends Component {
   static displayName = 'HomeView';
@@ -52,17 +53,13 @@ class HomeView extends Component {
     return (
       <TouchableHighlight
         key={this.keyExtractor}>
-        <View style={{backgroundColor: 'white'}}>
-          <Text>{ item.title }</Text>
-          <Text>{ item.description }</Text>
-          <Text>{ item.updated }</Text>
-          <Text>{ item.id }</Text>
-          <Text>{ 'https://www.wandianshenme.com/static/media/' + item.featured_image }</Text>
+        <Card
+          title={ item.title }>
           <View>
             { item.featured_image
               ? <FastImage
-                style={{width: 400, height: 200}}
-                resizeMode={FastImage.resizeMode.cover}
+                style={{width: 200, height: 100}}
+                resizeMode={FastImage.resizeMode.center}
                 source={{
                   uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
                 }}
@@ -70,7 +67,11 @@ class HomeView extends Component {
               : <Text>{ item.featured_image }</Text>
             }
           </View>
-        </View>
+
+          <Text style={{marginBottom: 10}}>
+            { item.description }
+          </Text>
+        </Card>
       </TouchableHighlight>
     );
   };
@@ -82,11 +83,13 @@ class HomeView extends Component {
 
     return (
       <View style={styles.container}>
-        <FlatList
-          keyExtractor={this.keyExtractor}
-          data={this.state.data.results}
-          renderItem={this.renderList}
-        />
+        <View>
+          <FlatList
+            keyExtractor={this.keyExtractor}
+            data={this.state.data.results}
+            renderItem={this.renderList}
+          />
+        </View>
       </View>
     );
   }

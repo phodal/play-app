@@ -4,6 +4,7 @@ import Spinner from 'react-native-spinkit';
 import {
   View,
   Text,
+  Platform,
   StyleSheet
 } from 'react-native';
 
@@ -20,7 +21,10 @@ const styles = StyleSheet.create({
 
 const Loading = ({text}) => (
   <View style={styles.container}>
-    <Spinner style={styles.spinner} size={20} type={'Circle'} color={'#000'}/>
+    <Spinner style={styles.spinner}
+             size={24}
+             type={Platform.OS === 'ios' ? 'FadingCircle' : 'FadingCircleAlt'}
+             color={'#000'}/>
     {!!text && <Text>{text}</Text>}
   </View>
 );
