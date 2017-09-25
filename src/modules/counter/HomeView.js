@@ -62,7 +62,7 @@ class HomeView extends Component {
             { item.featured_image
               ? <FastImage
                 style={{width: deviceWidth - 60, height: (deviceWidth - 60) * 0.4}}
-                resizeMode={FastImage.resizeMode.center}
+                resizeMode={FastImage.resizeMode.cover}
                 source={{
                   uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
                 }}
