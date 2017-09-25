@@ -12,8 +12,8 @@ const activeColor = 'white';
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator(
   {
-    Counter: {screen: HomeViewContainer},
-    Color: {screen: PlayViewContainer},
+    Home: {screen: HomeViewContainer},
+    Play: {screen: PlayViewContainer},
     Guide: {screen: GuideViewContainer},
     About: {screen: AboutViewContainer}
   },
@@ -36,7 +36,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  Color: {screen: PlayViewContainer},
+  Play: {screen: PlayViewContainer},
   Guide: {screen: GuideViewContainer},
   About: {screen: AboutViewContainer}
 });

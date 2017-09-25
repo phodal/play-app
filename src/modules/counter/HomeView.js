@@ -114,10 +114,6 @@ class HomeView extends Component {
             renderItem={this.renderList}
             onEndReached={this.onEndReached.bind(this)}
           />
-
-          { this.state.noMore
-            ? <View><Text>已无更多内容</Text></View> : <View />
-          }
         </View>
       </View>
     );
