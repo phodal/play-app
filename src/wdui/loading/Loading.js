@@ -11,16 +11,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   spinner: {
     marginBottom: 50
-  },
-  btn: {
-    marginTop: 20
-  },
-  text: {
-    color: 'white'
   }
 });
 

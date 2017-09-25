@@ -57,15 +57,17 @@ class HomeView extends Component {
           <Text>{ item.updated }</Text>
           <Text>{ item.id }</Text>
           <Text>{ 'https://www.wandianshenme.com/static/media/' + item.featured_image }</Text>
-          { item.featured_image
-            ? <Image source={{
-              uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image,
-              cache: 'only-if-cached'
-            }}
-                     style={{width: 400, height: 200}}
-            />
-            : <Text>{ item.featured_image }</Text>
-          }
+          <View>
+            { item.featured_image
+              ? <Image
+                style={{width: 400, height: 200}}
+                source={{
+                  uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
+                }}
+              />
+              : <Text>{ item.featured_image }</Text>
+            }
+          </View>
         </View>
       </TouchableHighlight>
     );
