@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import HomeView from './HomeView';
 import {NavigationActions} from 'react-navigation';
-import * as CounterStateActions from '../counter/CounterState';
+import * as CounterStateActions from '../home/CounterState';
 
 export default connect(
   state => ({

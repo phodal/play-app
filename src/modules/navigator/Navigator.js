@@ -1,7 +1,7 @@
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
-import HomeViewContainer from '../counter/HomeViewContainer';
+import HomeViewContainer from '../home/HomeViewContainer';
 import PlayViewContainer from '../play/PlayViewContainer';
 import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
