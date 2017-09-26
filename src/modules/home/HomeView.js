@@ -6,6 +6,7 @@ import {
   Text,
   Dimensions,
   Platform,
+  ActivityIndicator,
   TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -26,9 +27,7 @@ class HomeView extends Component {
       flexDirection: 'row',
       height: Platform.OS === 'ios' ? 64 : 56
     }}
-    >
-
-    </View>,
+     />,
     title: '首页推荐',
     tabBarIcon: (props) => (
         <Icon name='home' size={24} color={props.tintColor} />
@@ -46,6 +45,7 @@ class HomeView extends Component {
       nextLink: null,
       noMore: false,
       isRefreshing: false,
+      loadingMore: false,
       data: []
     };
   }
@@ -61,7 +61,28 @@ class HomeView extends Component {
     this.fetchData();
   }
 
+  renderFooter = () => {
+    if (!this.state.loadingMore) {
+      return null;
+    }
+
+    return (
+      <View
+        style={{
+          paddingVertical: 20,
+          borderTopWidth: 1,
+          borderColor: '#CED0CE'
+        }}
+      >
+        <ActivityIndicator animating size='large' />
+      </View>
+    );
+  };
+
   fetchData() {
+    this.setState({
+      loading: true
+    });
     axios.get('https://www.wandianshenme.com/api/play/')
       .then(response => {
         this.setState({
@@ -81,12 +102,17 @@ class HomeView extends Component {
       });
       return;
     }
+    this.setState({
+      loadingMore: true
+    });
+
     axios.get(this.state.nextLink)
       .then(response => {
         this.setState({
           data: response.data,
           plays: this.state.plays.concat(response.data.results),
           nextLink: response.data.next ? response.data.next : null,
+          loadingMore: false,
           loading: false
         });
       });
@@ -137,6 +163,7 @@ class HomeView extends Component {
             refreshing={this.state.isRefreshing}
             renderItem={this.renderList}
             onRefresh={this.onRefresh.bind(this)}
+            ListFooterComponent={this.renderFooter}
             onEndReached={this.onEndReached.bind(this)}
           />
         </View>
