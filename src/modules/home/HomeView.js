@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 
+import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
 
@@ -136,11 +137,11 @@ class HomeView extends Component {
                     uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
                   }}
                 />
-                : <Text>{ item.featured_image }</Text>
+                : <View />
               }
             </View>
 
-            <Text style={{marginBottom: 10}}>
+            <Text style={{marginBottom: 10, fontSize: normalize(13), lineHeight: normalize(18)}}>
               { item.description }
             </Text>
           </Card>
