@@ -1,13 +1,11 @@
 import React, {PropTypes, Component} from 'react';
 import {
-    Button,
+    Text,
     View,
     StyleSheet
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-const color = () => Math.floor(255 * Math.random());
 
 class AboutView extends Component {
   static displayName = 'AboutView';
@@ -25,9 +23,6 @@ class AboutView extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      background: `rgba(${color()},${color()},${color()}, 1)`
-    };
   }
 
   open = () => {
@@ -35,10 +30,12 @@ class AboutView extends Component {
   };
 
   render() {
-    const buttonText = 'Open in Stack Navigator';
     return (
-            <View style={[styles.container, {backgroundColor: this.state.background}]}>
-                <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
+            <View style={styles.container}>
+              <Text>联系我们</Text>
+              <Text>版本</Text>
+              <Text>评价</Text>
+              <Text>反馈</Text>
             </View>
     );
   }
