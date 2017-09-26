@@ -1,5 +1,5 @@
 import {Platform} from 'react-native';
-import {TabNavigator, StackNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator, TabBarBottom} from 'react-navigation';
 
 import HomeViewContainer from '../home/HomeViewContainer';
 import PlayViewContainer from '../play/PlayViewContainer';
@@ -18,6 +18,8 @@ export const MainScreenNavigator = TabNavigator(
     About: {screen: AboutViewContainer}
   },
   {
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
     tabBarOptions: {
       ...Platform.select({
         android: {
@@ -30,7 +32,7 @@ export const MainScreenNavigator = TabNavigator(
   });
 
 MainScreenNavigator.navigationOptions = {
-  title: '一起玩点什么'
+  title: '玩点什么'
 };
 
 // Root navigator is a StackNavigator
