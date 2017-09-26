@@ -5,6 +5,7 @@ import HomeViewContainer from '../home/HomeViewContainer';
 import PlayViewContainer from '../play/PlayViewContainer';
 import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
+import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
 
 const headerColor = '#384452';
 const activeColor = 'white';
@@ -32,7 +33,12 @@ export const MainScreenNavigator = TabNavigator(
   });
 
 MainScreenNavigator.navigationOptions = {
-  title: '玩点什么'
+  title: '玩点什么',
+  headerTitleStyle: {color: 'white'},
+  headerStyle: {
+    backgroundColor: headerColor,
+    elevation: 0 // disable header elevation when TabNavigator visible
+  }
 };
 
 // Root navigator is a StackNavigator
@@ -40,7 +46,11 @@ const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
   Play: {screen: PlayViewContainer},
   Guide: {screen: GuideViewContainer},
-  About: {screen: AboutViewContainer}
+  About: {screen: AboutViewContainer},
+  PlayDetail: {
+    // path: 'play/:slug',
+    screen: PlayDetailViewContainer
+  }
 });
 
 export default AppNavigator;

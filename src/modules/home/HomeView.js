@@ -16,7 +16,7 @@ import FastImage from 'react-native-fast-image';
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
-import { URL } from '../../constants';
+import {URL} from '../../constants';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -123,8 +123,11 @@ class HomeView extends Component {
   keyExtractor = (item, index) => `key${index}`;
 
   renderList = ({item}) => {
+    const {navigate} = this.props.navigation;
+
     return (
       <TouchableHighlight
+        onPress={() => navigate({routeName: 'PlayDetail', param: item})}
         key={this.keyExtractor}>
         <View>
           <Card
