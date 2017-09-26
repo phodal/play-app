@@ -16,6 +16,7 @@ import FastImage from 'react-native-fast-image';
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
+import { URL } from '../../constants';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -84,7 +85,7 @@ class HomeView extends Component {
     this.setState({
       loading: true
     });
-    axios.get('https://www.wandianshenme.com/api/play/')
+    axios.get(URL.PLAY)
       .then(response => {
         this.setState({
           data: response.data,
@@ -134,7 +135,7 @@ class HomeView extends Component {
                   style={{width: deviceWidth - 60, height: (deviceWidth - 60) * 0.4}}
                   resizeMode={FastImage.resizeMode.cover}
                   source={{
-                    uri: 'https://www.wandianshenme.com/static/media/' + item.featured_image
+                    uri: URL.IMAGE_BASE + item.featured_image
                   }}
                 />
                 : <View />
