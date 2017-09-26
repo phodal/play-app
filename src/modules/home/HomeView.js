@@ -5,6 +5,7 @@ import {
   View,
   Text,
   Dimensions,
+  Platform,
   TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -20,6 +21,14 @@ class HomeView extends Component {
   static displayName = 'HomeView';
 
   static navigationOptions = {
+    header: <View style={{
+      backgroundColor: '#384452',
+      flexDirection: 'row',
+      height: Platform.OS === 'ios' ? 64 : 56
+    }}
+    >
+
+    </View>,
     title: '首页推荐',
     tabBarIcon: (props) => (
         <Icon name='home' size={24} color={props.tintColor} />
