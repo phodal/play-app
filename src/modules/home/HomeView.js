@@ -4,6 +4,7 @@ import {
   FlatList,
   StyleSheet,
   View,
+  ScrollView,
   Text,
   Dimensions,
   Platform,
@@ -117,7 +118,7 @@ class HomeView extends Component {
     const {top} = this.state.data;
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View>
           <Swiper style={styles.wrapper} showsButtons={false} height={deviceWidth * 0.6}>
             <View style={styles.slide1}>
@@ -166,6 +167,8 @@ class HomeView extends Component {
               </FastImage>
             </View>
           </Swiper>
+        </View>
+        <View>
           <FlatList
             keyExtractor={this.keyExtractor}
             data={this.state.data.hot}
@@ -174,7 +177,7 @@ class HomeView extends Component {
             onRefresh={this.onRefresh.bind(this)}
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -182,10 +185,6 @@ class HomeView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white'
   },
   wrapper: {
     height: deviceWidth * 0.4
