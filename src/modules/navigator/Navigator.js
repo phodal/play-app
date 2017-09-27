@@ -8,7 +8,7 @@ import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
 
 const headerColor = '#384452';
-const activeColor = 'white';
+const activeColor = '#fff';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator(
@@ -34,7 +34,7 @@ export const MainScreenNavigator = TabNavigator(
 
 MainScreenNavigator.navigationOptions = {
   title: '玩点什么',
-  headerTitleStyle: {color: 'activeColor'},
+  headerTitleStyle: {color: activeColor},
   headerStyle: {
     backgroundColor: headerColor,
     elevation: 0 // disable header elevation when TabNavigator visible

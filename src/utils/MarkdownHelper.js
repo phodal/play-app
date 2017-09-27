@@ -18,6 +18,9 @@ const md = require('markdown-it')({
 
 export default class MarkdownHelper {
   static convert(str) {
-    return md.render(str);
+    let html = md.render(str);
+    html.replace(new RegExp('<p>', 'g'), '<span>')
+        .replace(new RegExp('</p>', 'g'), '</span>')
+    return html;
   }
 }
