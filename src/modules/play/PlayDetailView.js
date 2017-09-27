@@ -2,8 +2,15 @@ import React, {PropTypes, Component} from 'react';
 import {
   View,
   Text,
+  ScrollView,
+  Dimensions,
   StyleSheet
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
+
+import {URL} from '../../constants';
+
+const deviceWidth = Dimensions.get('window').width;
 
 class PlayDetailView extends Component {
   static displayName = 'PlayDetailView';
@@ -26,7 +33,22 @@ class PlayDetailView extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>{ params.content }</Text>
+        <ScrollView>
+          <View style={{paddingBottom: 15}}>
+            { params.featured_image
+              ? <FastImage
+                style={{width: deviceWidth, height: (deviceWidth) * 0.4}}
+                resizeMode={FastImage.resizeMode.cover}
+                source={{
+                  uri: URL.IMAGE_BASE + params.featured_image
+                }}
+              />
+              : <View />
+            }
+          </View>
+          <Text>{ params.title }</Text>
+          <Text>{ params.content }</Text>
+        </ScrollView>
       </View>
     );
   }

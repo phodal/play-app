@@ -17,7 +17,6 @@ import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
 import {URL} from '../../constants';
-import PlayDetailView from "../play/PlayDetailView";
 
 const deviceWidth = Dimensions.get('window').width;
 
