@@ -21,6 +21,8 @@ export default class MarkdownHelper {
     let html = md.render(str);
     html.replace(new RegExp('<p>', 'g'), '<span>')
         .replace(new RegExp('</p>', 'g'), '</span>')
+        .replace('src="/static/media/uploads/',
+          'width="400" height="240" src="https://www.wandianshenme.com/static/media/uploads/');
     return html;
   }
 }
