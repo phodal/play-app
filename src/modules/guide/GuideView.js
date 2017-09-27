@@ -1,52 +1,105 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
-    Button,
-    View,
-    StyleSheet
-} from 'react-native';
-
+import {ScrollView, Dimensions, FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import axios from 'axios';
+import Loading from '../../wdui/loading/Loading';
+import {URL} from '../../constants';
+import FastImage from 'react-native-fast-image';
 
-const color = () => Math.floor(255 * Math.random());
+const deviceWidth = Dimensions.get('window').width;
 
-/**
- * Sample view to demonstrate StackNavigator
- * @TODO remove this module in a live application.
- */
 class GuideView extends Component {
   static displayName = 'GuideView';
 
   static navigationOptions = {
-    title: '分类',
-    tabBarIcon: (props) => {
-      return (
-        <Icon name='explore' size={24} color={props.tintColor}/>
-      );
-    }
+    title: '指南',
+    tabBarIcon: (props) => (
+      <Icon name='explore' size={24} color={props.tintColor} />
+    )
   };
 
   static propTypes = {
     navigate: PropTypes.func.isRequired
   };
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      background: `rgba(${color()},${color()},${color()}, 1)`
+      loading: true,
+      isRefreshing: false,
+      loadingMore: false,
+      data: []
     };
   }
 
-  open = () => {
-    this.props.navigate({routeName: 'Guide'});
+  componentWillMount() {
+    this.fetchData();
+  }
+
+  onRefresh() {
+    this.setState({
+      isRefreshing: true
+    });
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.setState({
+      loading: true
+    });
+    axios.get(URL.CATEGORY)
+      .then(response => {
+        this.setState({
+          data: response.data,
+          plays: response.data.results,
+          isRefreshing: false,
+          loading: false
+        });
+      });
+  }
+
+  keyExtractor = (item, index) => `key${index}`;
+
+  renderList = ({item}) => {
+    const {navigate} = this.props.navigation;
+    return (
+      <TouchableHighlight
+        onPress={() => navigate('PlayDetailView', item)}
+        key={this.keyExtractor}>
+        <View style={{paddingBottom: 15}}>
+          { item.make && item.make.featured_image
+            ? <FastImage
+              style={{width: deviceWidth, height: deviceWidth * 0.4}}
+              resizeMode={FastImage.resizeMode.cover}
+              source={{
+                uri: URL.IMAGE_BASE + item.make.featured_image
+              }}
+            />
+            : <View />
+          }
+        </View>
+      </TouchableHighlight>
+    );
   };
 
   render() {
-    const buttonText = 'Open in Stack Navigator';
+    if (this.state.loading) {
+      return <Loading text={'数据加载中'} />;
+    }
+
     return (
-            <View style={[styles.container, {backgroundColor: this.state.background}]}>
-                <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
-            </View>
+      <View style={styles.container}>
+        <ScrollView style={{paddingTop: 15}}>
+          <FlatList
+            keyExtractor={this.keyExtractor}
+            data={this.state.plays}
+            refreshing={this.state.isRefreshing}
+            renderItem={this.renderList}
+            onRefresh={this.onRefresh.bind(this)}
+          />
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -54,8 +107,10 @@ class GuideView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 0,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   }
 });
 
