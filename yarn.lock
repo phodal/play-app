@@ -5373,6 +5373,10 @@ react-dom@~16.0.0-alpha.6:
     object-assign "^4.1.0"
     prop-types "^15.5.6"
 
+react-native-device-info@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.11.0.tgz#e96dd0e3f8a7d7e3022c1f441f51fa912fdc7444"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"

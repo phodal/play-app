@@ -3,6 +3,7 @@ package com.play;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.dylanvann.fastimage.FastImageViewPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.facebook.react.ReactNativeHost;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RNDeviceInfo(),
             new FastImageViewPackage(),
             new RNSpinkitPackage(),
         new VectorIconsPackage()
