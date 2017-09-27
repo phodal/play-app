@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
-    Text,
     View,
     StyleSheet
 } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {List, ListItem} from 'react-native-elements';
 
 class AboutView extends Component {
   static displayName = 'AboutView';
@@ -32,22 +33,15 @@ class AboutView extends Component {
 
   render() {
     return (
-            <View style={styles.container}>
-              <Text>联系我们</Text>
-              <Text>版本</Text>
-              <Text>评价</Text>
-              <Text>反馈</Text>
-            </View>
+      <View>
+        <List>
+          <ListItem title={'联系我们'}/>
+          <ListItem title={'版本'} rightTitle={DeviceInfo.getVersion()}/>
+          <ListItem title={'评价'}/>
+        </List>
+      </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default AboutView;
