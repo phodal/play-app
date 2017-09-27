@@ -18,7 +18,7 @@ class GuideView extends Component {
   static displayName = 'GuideView';
 
   static navigationOptions = {
-    title: '指南',
+    title: '分类',
     tabBarIcon: (props) => {
       return (
         <Icon name='explore' size={24} color={props.tintColor}/>
