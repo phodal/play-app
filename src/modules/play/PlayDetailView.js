@@ -31,7 +31,7 @@ class PlayDetailView extends Component {
 
   render() {
     const {params} = this.props.navigation.state;
-    const htmlContent = MarkdownHelper.convert(params.content);
+    const htmlContent = MarkdownHelper.convert(params.content, {width: deviceWidth});
 
     return (
       <View style={styles.container}>

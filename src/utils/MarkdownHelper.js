@@ -17,12 +17,14 @@ const md = require('markdown-it')({
 });
 
 export default class MarkdownHelper {
-  static convert(str) {
+  static convert(str, options) {
+    let width = options.width;
+    let height = width * 0.6;
     let html = md.render(str);
     html.replace(new RegExp('<p>', 'g'), '<span>')
         .replace(new RegExp('</p>', 'g'), '</span>')
         .replace('src="/static/media/uploads/',
-          'width="400" height="240" src="https://www.wandianshenme.com/static/media/uploads/');
+          `width="${width}" height="${height}" src="https://www.wandianshenme.com/static/media/uploads/`);
     return html;
   }
 }
