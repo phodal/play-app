@@ -7,8 +7,10 @@ import {
   StyleSheet
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import HTMLView from 'react-native-htmlview';
 
 import {URL} from '../../constants';
+import MarkdownHelper from '../../utils/MarkdownHelper';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -29,7 +31,7 @@ class PlayDetailView extends Component {
 
   render() {
     const {params} = this.props.navigation.state;
-    console.log(params);
+    const htmlContent = MarkdownHelper.convert(params.content);
 
     return (
       <View style={styles.container}>
@@ -47,7 +49,10 @@ class PlayDetailView extends Component {
             }
           </View>
           <Text>{ params.title }</Text>
-          <Text>{ params.content }</Text>
+          <HTMLView
+            value={htmlContent}
+            stylesheet={styles}
+          />
         </ScrollView>
       </View>
     );
@@ -58,7 +63,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#fff'
   }
 });
 
