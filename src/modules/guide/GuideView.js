@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {ScrollView, Image, Text, Dimensions, FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
+import {
+  ScrollView,
+  ImageBackground,
+  Text,
+  Dimensions,
+  FlatList,
+  StyleSheet,
+  TouchableHighlight,
+  View
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 
@@ -70,7 +79,7 @@ class GuideView extends Component {
         key={this.keyExtractor}>
         <View style={{paddingBottom: 15}}>
           { item.make && item.make.featured_image
-            ? <Image
+            ? <ImageBackground
               style={{width: deviceWidth, height: deviceWidth * 0.4}}
               source={{
                 uri: URL.IMAGE_BASE + item.make.featured_image
@@ -81,7 +90,7 @@ class GuideView extends Component {
                   <Text style={styles.text}>{item.title}</Text>
                 </View>
               </View>
-            </Image>
+            </ImageBackground>
             : <View />
           }
         </View>

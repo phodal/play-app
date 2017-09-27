@@ -6,16 +6,15 @@ import {
   View,
   ScrollView,
   Text,
-  Image,
   Dimensions,
   Platform,
-  TouchableHighlight
+  TouchableHighlight,
+  ImageBackground
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-swiper';
-
 
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
@@ -118,52 +117,32 @@ class HomeView extends Component {
     }
     const {top} = this.state.data;
 
+    let topElems = [];
+    for (let i = 0; i < top.length; i++) {
+      let topData = top[i];
+      let topElem = (<View key={i} style={styles.slide1}>
+        <ImageBackground
+          style={{width: deviceWidth, height: deviceWidth * 0.6}}
+          source={{
+            uri: URL.IMAGE_BASE + topData.featured_image
+          }}
+        >
+          <View style={styles.textView}>
+            <View style={styles.textbg}>
+              <Text style={styles.text}>{topData.title}</Text>
+            </View>
+          </View>
+        </ImageBackground>
+      </View>);
+
+      topElems.push(topElem);
+    }
+
     return (
       <ScrollView style={styles.container}>
         <View>
           <Swiper style={styles.wrapper} showsButtons={false} height={deviceWidth * 0.6}>
-            <View style={styles.slide1}>
-              <Image
-                style={{width: deviceWidth, height: deviceWidth * 0.6}}
-                source={{
-                  uri: URL.IMAGE_BASE + top[0].featured_image
-                }}
-              >
-                <View style={styles.textView}>
-                  <View style={styles.textbg}>
-                    <Text style={styles.text}>{top[0].title}</Text>
-                  </View>
-                </View>
-              </Image>
-            </View>
-            <View style={styles.slide2}>
-              <Image
-                style={{width: deviceWidth, height: deviceWidth * 0.6}}
-                source={{
-                  uri: URL.IMAGE_BASE + top[1].featured_image
-                }}
-              >
-                <View style={styles.textView}>
-                  <View style={styles.textbg}>
-                    <Text style={styles.text}>{top[1].title}</Text>
-                  </View>
-                </View>
-              </Image>
-            </View>
-            <View style={styles.slide3}>
-              <Image
-                style={{width: deviceWidth, height: deviceWidth * 0.6}}
-                source={{
-                  uri: URL.IMAGE_BASE + top[2].featured_image
-                }}
-              >
-                <View style={styles.textView}>
-                  <View style={styles.textbg}>
-                    <Text style={styles.text}>{top[2].title}</Text>
-                  </View>
-                </View>
-              </Image>
-            </View>
+            {topElems}
           </Swiper>
         </View>
         <View>
