@@ -6,6 +6,7 @@ import {
   View,
   ScrollView,
   Text,
+  Image,
   Dimensions,
   Platform,
   TouchableHighlight
@@ -122,9 +123,8 @@ class HomeView extends Component {
         <View>
           <Swiper style={styles.wrapper} showsButtons={false} height={deviceWidth * 0.6}>
             <View style={styles.slide1}>
-              <FastImage
+              <Image
                 style={{width: deviceWidth, height: deviceWidth * 0.6}}
-                resizeMode={FastImage.resizeMode.cover}
                 source={{
                   uri: URL.IMAGE_BASE + top[0].featured_image
                 }}
@@ -134,12 +134,11 @@ class HomeView extends Component {
                     <Text style={styles.text}>{top[0].title}</Text>
                   </View>
                 </View>
-              </FastImage>
+              </Image>
             </View>
             <View style={styles.slide2}>
-              <FastImage
+              <Image
                 style={{width: deviceWidth, height: deviceWidth * 0.6}}
-                resizeMode={FastImage.resizeMode.cover}
                 source={{
                   uri: URL.IMAGE_BASE + top[1].featured_image
                 }}
@@ -149,12 +148,11 @@ class HomeView extends Component {
                     <Text style={styles.text}>{top[1].title}</Text>
                   </View>
                 </View>
-              </FastImage>
+              </Image>
             </View>
             <View style={styles.slide3}>
-              <FastImage
+              <Image
                 style={{width: deviceWidth, height: deviceWidth * 0.6}}
-                resizeMode={FastImage.resizeMode.cover}
                 source={{
                   uri: URL.IMAGE_BASE + top[2].featured_image
                 }}
@@ -164,7 +162,7 @@ class HomeView extends Component {
                     <Text style={styles.text}>{top[2].title}</Text>
                   </View>
                 </View>
-              </FastImage>
+              </Image>
             </View>
           </Swiper>
         </View>
@@ -184,7 +182,7 @@ class HomeView extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   wrapper: {
     height: deviceWidth * 0.4

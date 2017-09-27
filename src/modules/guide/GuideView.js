@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {ScrollView, Text, Dimensions, FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
+import {ScrollView, Image, Text, Dimensions, FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
-import FastImage from 'react-native-fast-image';
 
 import Loading from '../../wdui/loading/Loading';
 import {URL} from '../../constants';
@@ -71,9 +70,8 @@ class GuideView extends Component {
         key={this.keyExtractor}>
         <View style={{paddingBottom: 15}}>
           { item.make && item.make.featured_image
-            ? <FastImage
+            ? <Image
               style={{width: deviceWidth, height: deviceWidth * 0.4}}
-              resizeMode={FastImage.resizeMode.cover}
               source={{
                 uri: URL.IMAGE_BASE + item.make.featured_image
               }}
@@ -83,7 +81,7 @@ class GuideView extends Component {
                   <Text style={styles.text}>{item.title}</Text>
                 </View>
               </View>
-            </FastImage>
+            </Image>
             : <View />
           }
         </View>
