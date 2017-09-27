@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {ScrollView, Dimensions, FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
+import {ScrollView, Text, Dimensions, FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
+import FastImage from 'react-native-fast-image';
+
 import Loading from '../../wdui/loading/Loading';
 import {URL} from '../../constants';
-import FastImage from 'react-native-fast-image';
+import normalize from '../../wdui/helpers/normalizeText';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -75,7 +77,13 @@ class GuideView extends Component {
               source={{
                 uri: URL.IMAGE_BASE + item.make.featured_image
               }}
-            />
+            >
+              <View style={styles.textView}>
+                <View style={styles.textbg}>
+                  <Text style={styles.text}>{item.title}</Text>
+                </View>
+              </View>
+            </FastImage>
             : <View />
           }
         </View>
@@ -111,6 +119,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
+  },
+  textView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textbg: {
+    width: deviceWidth,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)'
+  },
+  text: {
+    color: '#4d4d4d',
+    padding: 10,
+    fontSize: normalize(18),
+    textAlign: 'center'
   }
 });
 
