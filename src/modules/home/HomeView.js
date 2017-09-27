@@ -45,10 +45,7 @@ class HomeView extends Component {
     super();
     this.state = {
       loading: true,
-      nextLink: null,
-      noMore: false,
       isRefreshing: false,
-      loadingMore: false,
       data: []
     };
   }
@@ -64,58 +61,15 @@ class HomeView extends Component {
     this.fetchData();
   }
 
-  renderFooter = () => {
-    if (!this.state.loadingMore) {
-      return null;
-    }
-
-    return (
-      <View
-        style={{
-          paddingVertical: 20,
-          borderTopWidth: 1,
-          borderColor: '#CED0CE'
-        }}
-      >
-        <ActivityIndicator animating size='large' />
-      </View>
-    );
-  };
-
   fetchData() {
     this.setState({
       loading: true
     });
-    axios.get(URL.PLAY)
+    axios.get(URL.HOME)
       .then(response => {
         this.setState({
           data: response.data,
-          plays: response.data.results,
-          nextLink: response.data.next ? response.data.next : null,
           isRefreshing: false,
-          loading: false
-        });
-      });
-  }
-
-  onEndReached() {
-    if (!this.state.nextLink) {
-      this.setState({
-        noMore: true
-      });
-      return;
-    }
-    this.setState({
-      loadingMore: true
-    });
-
-    axios.get(this.state.nextLink)
-      .then(response => {
-        this.setState({
-          data: response.data,
-          plays: this.state.plays.concat(response.data.results),
-          nextLink: response.data.next ? response.data.next : null,
-          loadingMore: false,
           loading: false
         });
       });
@@ -165,12 +119,10 @@ class HomeView extends Component {
         <View>
           <FlatList
             keyExtractor={this.keyExtractor}
-            data={this.state.plays}
+            data={this.state.data.top}
             refreshing={this.state.isRefreshing}
             renderItem={this.renderList}
             onRefresh={this.onRefresh.bind(this)}
-            ListFooterComponent={this.renderFooter}
-            onEndReached={this.onEndReached.bind(this)}
           />
         </View>
       </View>
