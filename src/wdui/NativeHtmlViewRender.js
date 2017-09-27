@@ -3,6 +3,7 @@ import {
   StyleSheet
 } from 'react-native';
 import HTMLView from 'react-native-htmlview';
+import normalize from './helpers/normalizeText';
 
 class NativeHtmlViewRender extends Component {
   static propTypes = {
@@ -36,33 +37,38 @@ const styles = StyleSheet.create({
   },
   pre: {
     padding: 5,
-    backgroundColor: '#f8f8f8'
+    backgroundColor: '#f8f8f8',
+    fontSize: normalize(14)
   },
   code: {
     color: '#444',
     backgroundColor: '#f0f0f0',
-    borderRadius: 5
+    borderRadius: 5,
+    fontSize: normalize(14)
   },
   htmlView: {
     padding: 10
   },
   a: {
-    color: '#1abc9c'
+    color: '#1abc9c',
+    fontSize: normalize(14)
   },
   li: {
-    color: '#384452'
+    color: '#384452',
+    fontSize: normalize(14)
   },
   p: {
     color: '#384452',
     marginTop: 0,
-    marginBottom: 0
+    marginBottom: 0,
+    fontSize: normalize(14)
   },
-  h1: {fontWeight: '500', fontSize: 24, color: '#384452'},
-  h2: {fontWeight: '500', fontSize: 20, color: '#384452'},
-  h3: {fontWeight: '500', fontSize: 18, color: '#384452'},
-  h4: {fontWeight: '500', fontSize: 16, color: '#384452'},
-  h5: {fontWeight: '500', fontSize: 14, color: '#384452'},
-  h6: {fontWeight: '500', fontSize: 12, color: '#384452'}
+  h1: {fontWeight: '500', fontSize: normalize(24), color: '#384452'},
+  h2: {fontWeight: '500', fontSize: normalize(22), color: '#384452'},
+  h3: {fontWeight: '500', fontSize: normalize(20), color: '#384452'},
+  h4: {fontWeight: '500', fontSize: normalize(18), color: '#384452'},
+  h5: {fontWeight: '500', fontSize: normalize(16), color: '#384452'},
+  h6: {fontWeight: '500', fontSize: normalize(14), color: '#384452'}
 });
 
 export default NativeHtmlViewRender;
