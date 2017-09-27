@@ -7,10 +7,10 @@ import {
   StyleSheet
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import HTMLView from 'react-native-htmlview';
 
 import {URL} from '../../constants';
 import MarkdownHelper from '../../utils/MarkdownHelper';
+import NativeHtmlViewRender from '../../wdui/NativeHtmlViewRender';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -49,11 +49,8 @@ class PlayDetailView extends Component {
             }
           </View>
           <Text style={styles.title}>{ params.title }</Text>
-          <HTMLView
-            value={htmlContent}
-            style={styles.htmlView}
-            stylesheet={styles}
-            addLineBreaks={false}
+          <NativeHtmlViewRender
+            html={htmlContent}
           />
         </ScrollView>
       </View>
@@ -68,41 +65,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff'
   },
-  pre: {
-    padding: 5,
-    backgroundColor: '#f8f8f8'
-  },
-  code: {
-    color: '#444',
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5
-  },
   title: {
     color: '#384452',
     alignItems: 'center',
     fontSize: 24,
     padding: 10
-  },
-  htmlView: {
-    padding: 10
-  },
-  a: {
-    color: '#1abc9c'
-  },
-  li: {
-    color: '#384452'
-  },
-  p: {
-    color: '#384452',
-    marginTop: 0,
-    marginBottom: 0
-  },
-  h1: {fontWeight: '500', fontSize: 24, color: '#384452'},
-  h2: {fontWeight: '500', fontSize: 20, color: '#384452'},
-  h3: {fontWeight: '500', fontSize: 18, color: '#384452'},
-  h4: {fontWeight: '500', fontSize: 16, color: '#384452'},
-  h5: {fontWeight: '500', fontSize: 14, color: '#384452'},
-  h6: {fontWeight: '500', fontSize: 12, color: '#384452'}
+  }
 });
 
 export default PlayDetailView;
