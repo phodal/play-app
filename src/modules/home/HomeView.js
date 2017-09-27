@@ -20,6 +20,10 @@ import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
 import {URL} from '../../constants';
+import {
+  Divider,
+  Button
+} from 'react-native-elements';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -116,6 +120,7 @@ class HomeView extends Component {
       return <Loading text={'数据加载中'} />;
     }
     const {top} = this.state.data;
+    const {navigate} = this.props.navigation;
 
     let topElems = [];
     for (let i = 0; i < top.length; i++) {
@@ -145,14 +150,22 @@ class HomeView extends Component {
             {topElems}
           </Swiper>
         </View>
+        <View style={styles.newTitle}>
+          <Divider />
+          <Text>最新玩法</Text>
+          <Divider />
+        </View>
         <View>
           <FlatList
             keyExtractor={this.keyExtractor}
-            data={this.state.data.hot}
+            data={this.state.data.new}
             refreshing={this.state.isRefreshing}
             renderItem={this.renderList}
             onRefresh={this.onRefresh.bind(this)}
           />
+        </View>
+        <View class={styles.findMore}>
+          <Button backgroundColor={'#00b3fe'} class={styles.moreButton} title={'查看更多'} onPress={() => navigate('Play')} />
         </View>
       </ScrollView>
     );
@@ -195,6 +208,19 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: normalize(18),
     textAlign: 'center'
+  },
+  newTitle: {
+    paddingTop: 15,
+    paddingBottom: 5,
+    alignItems: 'center'
+  },
+  findMore: {
+    marginTop: 15,
+    marginBottom: 15
+  },
+  moreButton: {
+    marginTop: 15,
+    marginBottom: 15
   }
 });
 
