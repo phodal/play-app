@@ -1,3 +1,4 @@
+import React from 'react';
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator, TabBarBottom} from 'react-navigation';
 
@@ -6,6 +7,7 @@ import PlayViewContainer from '../play/PlayViewContainer';
 import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const headerColor = '#384452';
 const activeColor = 'white';
@@ -34,7 +36,7 @@ export const MainScreenNavigator = TabNavigator(
 
 MainScreenNavigator.navigationOptions = {
   title: '玩点什么',
-  headerTitleStyle: {color: 'white'},
+  headerTitleStyle: {color: 'activeColor'},
   headerStyle: {
     backgroundColor: headerColor,
     elevation: 0 // disable header elevation when TabNavigator visible
@@ -47,9 +49,15 @@ const AppNavigator = StackNavigator({
   Play: {screen: PlayViewContainer},
   Guide: {screen: GuideViewContainer},
   About: {screen: AboutViewContainer},
-  PlayDetail: {
+  PlayDetailView: {
     // path: 'play/:slug',
     screen: PlayDetailViewContainer
+  }
+}, {
+  navigationOptions: {
+    headerTintColor: '#51c4fe',
+    headerStyle: {backgroundColor: 'white'},
+    headerTitleStyle: {alignSelf: 'center'}
   }
 });
 

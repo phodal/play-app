@@ -22,6 +22,7 @@ class PlayDetailView extends Component {
 
   render() {
     const {params} = this.props.navigation.state;
+    console.log(params);
 
     return (
       <View style={styles.container}>

@@ -17,6 +17,7 @@ import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import Card from '../../wdui/Card';
 import {URL} from '../../constants';
+import PlayDetailView from "../play/PlayDetailView";
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -127,7 +128,7 @@ class HomeView extends Component {
 
     return (
       <TouchableHighlight
-        onPress={() => navigate({routeName: 'PlayDetail', param: item})}
+        onPress={() => navigate('PlayDetailView', item)}
         key={this.keyExtractor}>
         <View>
           <Card
