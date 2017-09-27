@@ -17,9 +17,13 @@
 // });
 
 const md = require('markdown-it')();
+const isString = require('lodash.isstring');
 
 export default class MarkdownHelper {
   static convert(str, options) {
+    if (!isString(str)) {
+      return '';
+    }
     let width = options.width;
     let height = width * 0.6;
     let html = md.render(str);
