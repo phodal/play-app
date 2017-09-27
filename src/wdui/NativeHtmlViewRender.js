@@ -17,7 +17,6 @@ class NativeHtmlViewRender extends Component {
 
   render() {
     const {html} = this.props;
-    console.log(html);
 
     return (
         <HTMLView
@@ -31,12 +30,6 @@ class NativeHtmlViewRender extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
-  },
   pre: {
     padding: 5,
     backgroundColor: '#f8f8f8',
@@ -49,7 +42,8 @@ const styles = StyleSheet.create({
     fontSize: normalize(14)
   },
   htmlView: {
-    padding: 10
+    padding: 10,
+    backgroundColor: '#fff'
   },
   a: {
     color: '#1abc9c',

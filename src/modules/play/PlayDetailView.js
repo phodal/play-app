@@ -12,6 +12,7 @@ import FastImage from 'react-native-fast-image';
 import {URL} from '../../constants';
 import MarkdownHelper from '../../utils/MarkdownHelper';
 import NativeHtmlViewRender from '../../wdui/NativeHtmlViewRender';
+import Divider from '../../wdui/Divider';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -50,9 +51,11 @@ class PlayDetailView extends Component {
             }
           </View>
           <Text style={styles.title}>{ params.title }</Text>
+          <Divider />
           <NativeHtmlViewRender
             html={htmlContent}
           />
+          <Divider />
         </ScrollView>
       </View>
     );
@@ -63,14 +66,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
+    alignItems: 'center'
   },
   title: {
     color: '#384452',
     alignItems: 'center',
     fontSize: 24,
-    padding: 10
+    padding: 10,
+    backgroundColor: '#fff'
   }
 });
 
