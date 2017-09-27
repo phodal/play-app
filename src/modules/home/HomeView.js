@@ -7,12 +7,13 @@ import {
   Text,
   Dimensions,
   Platform,
-  ActivityIndicator,
   TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
+import Swiper from 'react-native-swiper';
+
 
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
@@ -113,13 +114,61 @@ class HomeView extends Component {
     if (this.state.loading) {
       return <Loading text={'数据加载中'} />;
     }
+    const {top} = this.state.data;
 
     return (
       <View style={styles.container}>
         <View>
+          <Swiper style={styles.wrapper} showsButtons={false} height={deviceWidth * 0.6}>
+            <View style={styles.slide1}>
+              <FastImage
+                style={{width: deviceWidth, height: deviceWidth * 0.6}}
+                resizeMode={FastImage.resizeMode.cover}
+                source={{
+                  uri: URL.IMAGE_BASE + top[0].featured_image
+                }}
+              >
+                <View style={styles.textView}>
+                  <View style={styles.textbg}>
+                    <Text style={styles.text}>{top[0].title}</Text>
+                  </View>
+                </View>
+              </FastImage>
+            </View>
+            <View style={styles.slide2}>
+              <FastImage
+                style={{width: deviceWidth, height: deviceWidth * 0.6}}
+                resizeMode={FastImage.resizeMode.cover}
+                source={{
+                  uri: URL.IMAGE_BASE + top[1].featured_image
+                }}
+              >
+                <View style={styles.textView}>
+                  <View style={styles.textbg}>
+                    <Text style={styles.text}>{top[1].title}</Text>
+                  </View>
+                </View>
+              </FastImage>
+            </View>
+            <View style={styles.slide3}>
+              <FastImage
+                style={{width: deviceWidth, height: deviceWidth * 0.6}}
+                resizeMode={FastImage.resizeMode.cover}
+                source={{
+                  uri: URL.IMAGE_BASE + top[2].featured_image
+                }}
+              >
+                <View style={styles.textView}>
+                  <View style={styles.textbg}>
+                    <Text style={styles.text}>{top[2].title}</Text>
+                  </View>
+                </View>
+              </FastImage>
+            </View>
+          </Swiper>
           <FlatList
             keyExtractor={this.keyExtractor}
-            data={this.state.data.top}
+            data={this.state.data.hot}
             refreshing={this.state.isRefreshing}
             renderItem={this.renderList}
             onRefresh={this.onRefresh.bind(this)}
@@ -137,6 +186,39 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
+  },
+  wrapper: {
+    height: deviceWidth * 0.4
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textbg: {
+    width: deviceWidth,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)'
+  },
+  text: {
+    color: '#4d4d4d',
+    padding: 10,
+    fontSize: normalize(18),
+    textAlign: 'center'
   }
 });
 
