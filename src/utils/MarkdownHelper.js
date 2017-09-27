@@ -13,7 +13,7 @@ const md = require('markdown-it')({
     }
 
     return `<pre class="hljs"><code>${md.utils.escapeHtml(str).replace(/\n/g, '<br>')}</code></pre>`;
-  },
+  }
 });
 
 export default class MarkdownHelper {
