@@ -22,8 +22,8 @@ class GuideView extends Component {
       return (
         <Icon name='explore' size={24} color={props.tintColor}/>
       );
-    },
-  }
+    }
+  };
 
   static propTypes = {
     navigate: PropTypes.func.isRequired

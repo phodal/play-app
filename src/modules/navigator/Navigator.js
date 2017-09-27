@@ -1,4 +1,3 @@
-import React from 'react';
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator, TabBarBottom} from 'react-navigation';
 
@@ -7,7 +6,6 @@ import PlayViewContainer from '../play/PlayViewContainer';
 import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const headerColor = '#384452';
 const activeColor = 'white';
