@@ -33,7 +33,6 @@ export const MainScreenNavigator = TabNavigator(
   });
 
 MainScreenNavigator.navigationOptions = {
-  title: '玩点什么',
   headerTitleStyle: {color: activeColor},
   headerStyle: {
     backgroundColor: headerColor,
