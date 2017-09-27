@@ -1,10 +1,28 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
+  View,
   StyleSheet
 } from 'react-native';
 import HTMLView from 'react-native-htmlview';
+import SyntaxHighlighter from 'react-native-syntax-highlighter';
+import {github} from 'react-syntax-highlighter/dist/styles';
+
 import normalize from './helpers/normalizeText';
+
+// eslint-disable-next-line consistent-return,no-unused-vars
+function renderNode(node, index, siblings, parent, defaultRenderer) {
+  if (node.name === 'pre') {
+    const codeString = node.children[0].children[0].data + '';
+    return (
+      <View style={styles.container} key={index}>
+        <SyntaxHighlighter style={github}>
+          {codeString}
+        </SyntaxHighlighter>
+      </View>
+    );
+  }
+}
 
 class NativeHtmlViewRender extends Component {
   static propTypes = {
@@ -23,6 +41,7 @@ class NativeHtmlViewRender extends Component {
           value={html}
           style={styles.htmlView}
           stylesheet={styles}
+          renderNode={renderNode}
           addLineBreaks={false}
         />
     );
