@@ -54,6 +54,7 @@ const AppNavigator = StackNavigator({
 }, {
   navigationOptions: {
     headerTintColor: '#51c4fe',
+    headerBackTitle: '后退',
     headerStyle: {backgroundColor: 'white'},
     headerTitleStyle: {alignSelf: 'center'}
   }
