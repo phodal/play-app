@@ -60,9 +60,6 @@ class HomeView extends Component {
 
   componentWillMount() {
     this.fetchData();
-  }
-
-  componentDidMount() {
     SplashScreen.hide();
   }
 
