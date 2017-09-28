@@ -36,8 +36,7 @@ class AboutView extends Component {
       <View>
         <List>
           <ListItem title={'联系我们'}/>
-          <ListItem title={'版本'} rightTitle={DeviceInfo.getVersion()}/>
-          <ListItem title={'评价'}/>
+          <ListItem title={'当前版本'} rightTitle={DeviceInfo.getVersion()}/>
         </List>
       </View>
     );
