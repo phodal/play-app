@@ -24,7 +24,6 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -47,7 +46,6 @@ android/app/libs
 android/keystores/debug.keystore
 
 #yarn
-yarn-error.log
 *.keystore
 
 # fastlane
