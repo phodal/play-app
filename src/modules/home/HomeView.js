@@ -32,12 +32,12 @@ class HomeView extends Component {
   static displayName = 'HomeView';
 
   static navigationOptions = {
-    header: <View style={{
-      backgroundColor: '#384452',
-      flexDirection: 'row',
-      height: Platform.OS === 'ios' ? 64 : 56
-    }}
-     />,
+    // header: <View style={{
+    //   backgroundColor: '#384452',
+    //   flexDirection: 'row',
+    //   height: Platform.OS === 'ios' ? 64 : 56
+    // }}
+    //  />,
     title: '首页推荐',
     tabBarIcon: (props) => (
         <Icon name='home' size={24} color={props.tintColor} />
