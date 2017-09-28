@@ -154,9 +154,10 @@ class HomeView extends Component {
 
     return (
       <TouchableHighlight
+        style={styles.slide}
         onPress={() => navigate('GuideDetailView', item)}
         key={this.keyExtractor}>
-        <View style={styles.slide}>
+        <View>
           <Text style={styles.slideTitle}>{ item.title }</Text>
         </View>
       </TouchableHighlight>
