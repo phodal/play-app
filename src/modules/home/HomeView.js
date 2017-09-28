@@ -126,18 +126,20 @@ class HomeView extends Component {
     for (let i = 0; i < top.length; i++) {
       let topData = top[i];
       let topElem = (<View key={i} style={styles.slide1}>
-        <ImageBackground
-          style={{width: deviceWidth, height: deviceWidth * 0.6}}
-          source={{
-            uri: URL.IMAGE_BASE + topData.featured_image
-          }}
-        >
-          <View style={styles.textView}>
-            <View style={styles.textbg}>
-              <Text style={styles.text}>{topData.title}</Text>
+        <TouchableHighlight onPress={() => navigate('PlayDetailView', topData)}>
+          <ImageBackground
+            style={{width: deviceWidth, height: deviceWidth * 0.6}}
+            source={{
+              uri: URL.IMAGE_BASE + topData.featured_image
+            }}
+          >
+            <View style={styles.textView}>
+              <View style={styles.textbg}>
+                <Text style={styles.text}>{topData.title}</Text>
+              </View>
             </View>
-          </View>
-        </ImageBackground>
+          </ImageBackground>
+        </TouchableHighlight>
       </View>);
 
       topElems.push(topElem);
