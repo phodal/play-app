@@ -103,7 +103,6 @@ class HomeView extends Component {
               <Text numberOfLines={2} style={styles.description}>
                 {item.description}
               </Text>
-              <Divider />
             </View>
           </View>
           <View>
@@ -161,9 +160,7 @@ class HomeView extends Component {
           </Swiper>
         </View>
         <View style={styles.newTitle}>
-          <Divider />
-          <Text>最受欢迎玩法</Text>
-          <Divider />
+          <Text style={{paddingLeft: 15}}>最受欢迎玩法</Text>
         </View>
         <View>
           <FlatList
@@ -175,9 +172,7 @@ class HomeView extends Component {
           />
         </View>
         <View style={styles.newTitle}>
-          <Divider />
-          <Text>最新玩法</Text>
-          <Divider />
+          <Text style={{paddingLeft: 15}}>最新玩法</Text>
         </View>
         <View>
           <FlatList
@@ -235,9 +230,11 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   newTitle: {
-    paddingTop: 25,
+    marginTop: 25,
     paddingBottom: 0,
-    paddingLeft: 15,
+    marginLeft: 15,
+    borderLeftWidth: 2,
+    borderLeftColor: '#51c4fe',
     alignItems: 'flex-start'
   },
   findMore: {
@@ -250,9 +247,11 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
+    marginLeft: 15,
+    marginRight: 15,
     marginTop: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(0, 0, 0, 0.3)',
     flexDirection: 'row'
   },
   article: {
