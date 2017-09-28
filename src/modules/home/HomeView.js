@@ -207,9 +207,9 @@ class HomeView extends Component {
             }}
             data={this.state.categories}
             renderItem={this.renderCategoryItem.bind(this)}
-            sliderWidth={deviceWidth * 0.2 * (this.state.categories.length + 4)}
-            itemWidth={deviceWidth * 0.2}
-            firstItem={4}
+            sliderWidth={deviceWidth}
+            itemWidth={deviceWidth * 0.12}
+            firstItem={3}
           />
         </View>
         <View style={styles.newTitle}>
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
   },
   slide: {
     flex: 1,
-    height: deviceWidth * 0.15,
+    height: deviceWidth * 0.12,
     width: deviceWidth * 0.3,
     borderRadius: 4,
     backgroundColor: 'rgba(56, 68, 62, 0.6)',
