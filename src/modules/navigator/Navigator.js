@@ -6,6 +6,7 @@ import PlayViewContainer from '../play/PlayViewContainer';
 import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
+import GuideDetailContainer from '../guide/GuideDetailContainer';
 
 const headerColor = '#384452';
 const activeColor = '#fff';
@@ -49,6 +50,10 @@ const AppNavigator = StackNavigator({
   PlayDetailView: {
     // path: 'play/:slug',
     screen: PlayDetailViewContainer
+  },
+  GuideDetailView: {
+    // path: 'play/:slug',
+    screen: GuideDetailContainer
   }
 }, {
   navigationOptions: {

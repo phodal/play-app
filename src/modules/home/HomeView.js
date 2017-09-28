@@ -52,7 +52,7 @@ class HomeView extends Component {
   constructor() {
     super();
     this.state = {
-      loading: false,
+      loading: true,
       isRefreshing: false,
       data: []
     };
@@ -74,9 +74,6 @@ class HomeView extends Component {
   }
 
   fetchData() {
-    this.setState({
-      loading: true
-    });
     axios.get(URL.HOME)
       .then(response => {
         this.setState({

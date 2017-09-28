@@ -55,9 +55,6 @@ class GuideView extends Component {
   }
 
   fetchData() {
-    this.setState({
-      loading: true
-    });
     axios.get(URL.CATEGORY)
       .then(response => {
         this.setState({
@@ -75,7 +72,7 @@ class GuideView extends Component {
     const {navigate} = this.props.navigation;
     return (
       <TouchableHighlight
-        onPress={() => navigate('PlayDetailView', item)}
+        onPress={() => navigate('GuideDetailView', item)}
         key={this.keyExtractor}>
         <View style={{paddingBottom: 15}}>
           { item.make && item.make.featured_image

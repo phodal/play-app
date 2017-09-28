@@ -20,8 +20,8 @@ import {URL} from '../../constants';
 
 const deviceWidth = Dimensions.get('window').width;
 
-class PlayView extends Component {
-  static displayName = 'PlayView';
+class PlayListView extends Component {
+  static displayName = 'PlayListView';
 
   static navigationOptions = {
     title: '玩法',
@@ -31,24 +31,29 @@ class PlayView extends Component {
   };
 
   static propTypes = {
-    url: PropTypes.string,
-    navigate: PropTypes.func
+    url: PropTypes.func.string,
+    navigate: PropTypes.func.isRequired
   };
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       loading: true,
       nextLink: null,
       noMore: false,
       isRefreshing: false,
       loadingMore: false,
-      data: [],
-      url: this.props.url ? this.props.url : URL.PLAY
+      url: URL.PLAY,
+      data: []
     };
   }
 
   componentWillMount() {
+    if (this.props.url) {
+      this.setState({
+        url: this.props.url
+      });
+    }
     this.fetchData();
   }
 
@@ -78,16 +83,19 @@ class PlayView extends Component {
   };
 
   fetchData() {
+    this.setState({
+      loading: true
+    });
     axios.get(this.state.url)
-      .then(response => {
-        this.setState({
-          data: response.data,
-          plays: response.data.results,
-          nextLink: response.data.next ? response.data.next : null,
-          isRefreshing: false,
-          loading: false
-        });
+    .then(response => {
+      this.setState({
+        data: response.data,
+        plays: response.data.results,
+        nextLink: response.data.next ? response.data.next : null,
+        isRefreshing: false,
+        loading: false
       });
+    });
   }
 
   onEndReached() {
@@ -102,15 +110,15 @@ class PlayView extends Component {
     });
 
     axios.get(this.state.nextLink)
-      .then(response => {
-        this.setState({
-          data: response.data,
-          plays: this.state.plays.concat(response.data.results),
-          nextLink: response.data.next ? response.data.next : null,
-          loadingMore: false,
-          loading: false
-        });
+    .then(response => {
+      this.setState({
+        data: response.data,
+        plays: this.state.plays.concat(response.data.results),
+        nextLink: response.data.next ? response.data.next : null,
+        loadingMore: false,
+        loading: false
       });
+    });
   }
 
   keyExtractor = (item, index) => `key${index}`;
@@ -180,4 +188,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PlayView;
+export default PlayListView;
