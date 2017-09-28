@@ -1,4 +1,4 @@
-package com.play;
+package com.phodal.play;
 
 import android.app.Application;
 
