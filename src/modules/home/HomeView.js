@@ -205,7 +205,7 @@ class HomeView extends Component {
             ref={(carousel) => {
               this.carousel = carousel;
             }}
-            data={this.state.categories}
+            data={this.state.categories.reverse()}
             renderItem={this.renderCategoryItem.bind(this)}
             sliderWidth={deviceWidth}
             itemWidth={deviceWidth * 0.12}
