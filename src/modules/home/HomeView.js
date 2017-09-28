@@ -157,7 +157,7 @@ class HomeView extends Component {
         onPress={() => navigate('GuideDetailView', item)}
         key={this.keyExtractor}>
         <View style={styles.slide}>
-          <Text styles={styles.sldieTitle}>{ item.title }</Text>
+          <Text style={styles.slideTitle}>{ item.title }</Text>
         </View>
       </TouchableHighlight>
     );
@@ -207,7 +207,7 @@ class HomeView extends Component {
             }}
             data={this.state.categories}
             renderItem={this.renderCategoryItem.bind(this)}
-            sliderWidth={deviceWidth * 2}
+            sliderWidth={deviceWidth * 0.2 * (this.state.categories.length + 4)}
             itemWidth={deviceWidth * 0.2}
             firstItem={4}
           />
@@ -268,8 +268,10 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: 'rgba(56, 68, 62, 0.6)',
     justifyContent: 'center',
-    color: '#fff',
     alignItems: 'center'
+  },
+  slideTitle: {
+    color: '#fff'
   },
   textView: {
     flex: 1,
