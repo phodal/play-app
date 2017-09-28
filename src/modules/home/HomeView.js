@@ -44,13 +44,14 @@ class HomeView extends Component {
   };
 
   static propTypes = {
+    navigation: React.PropTypes.object.isRequired,
     navigate: PropTypes.func.isRequired
   };
 
   constructor() {
     super();
     this.state = {
-      loading: true,
+      loading: false,
       isRefreshing: false,
       data: []
     };
