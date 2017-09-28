@@ -16,13 +16,13 @@ import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
+import SplashScreen from 'react-native-splash-screen';
 require('moment/locale/zh-cn');
 
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import {URL} from '../../constants';
 import {
-  Divider,
   Button
 } from 'react-native-elements';
 
@@ -60,6 +60,10 @@ class HomeView extends Component {
 
   componentWillMount() {
     this.fetchData();
+  }
+
+  componentDidMount() {
+    SplashScreen.hide();
   }
 
   onRefresh() {

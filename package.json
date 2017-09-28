@@ -56,6 +56,7 @@
     "react-native-htmlview": "^0.12.0",
     "react-native-snap-carousel": "^3.2.3",
     "react-native-spinkit": "^1.1.1",
+    "react-native-splash-screen": "^3.0.1",
     "react-native-swiper": "^1.5.12",
     "react-native-syntax-highlighter": "^1.2.5",
     "react-native-vector-icons": "^4.4.0",
