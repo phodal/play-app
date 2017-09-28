@@ -117,6 +117,7 @@ android {
             storePassword "phodal"
             keyAlias "phodal"
             keyPassword "phodal"
+            v2SigningEnabled false
         }
     }
     buildTypes {
