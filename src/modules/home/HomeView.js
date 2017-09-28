@@ -18,10 +18,8 @@ import Swiper from 'react-native-swiper';
 import moment from 'moment';
 require('moment/locale/zh-cn');
 
-
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
-import Card from '../../wdui/Card';
 import {URL} from '../../constants';
 import {
   Divider,
@@ -94,29 +92,32 @@ class HomeView extends Component {
       <TouchableHighlight
         onPress={() => navigate('PlayDetailView', item)}
         key={this.keyExtractor}>
-        <View>
-          <Card
-            title={ item.title }>
-            <View style={{paddingBottom: 15}}>
-              { item.featured_image
-                ? <FastImage
-                  style={{width: deviceWidth - 60, height: (deviceWidth - 60) * 0.4}}
-                  resizeMode={FastImage.resizeMode.cover}
-                  source={{
-                    uri: URL.IMAGE_BASE + item.featured_image
-                  }}
-                />
-                : <View />
-              }
+        <View style={styles.card}>
+          <View style={styles.article}>
+            <View>
+              <Text style={styles.author}>
+                {item.user} 发表于 {moment(item.updated).fromNow()}
+              </Text>
             </View>
-
-            <Text style={{marginBottom: 10, fontSize: normalize(12), lineHeight: normalize(18)}}>
-              作者：{ item.user }
-            </Text>
-            <Text style={{marginBottom: 10, fontSize: normalize(12), lineHeight: normalize(18)}}>
-              时间：{ moment(item.updated).fromNow() }
-            </Text>
-          </Card>
+            <View>
+              <Text numberOfLines={2} style={styles.description}>
+                {item.description}
+              </Text>
+              <Divider />
+            </View>
+          </View>
+          <View>
+            {item.featured_image
+              ? <FastImage
+                style={{width: deviceWidth * 0.3, height: deviceWidth * 0.3}}
+                resizeMode={FastImage.resizeMode.cover}
+                source={{
+                  uri: URL.IMAGE_BASE + item.featured_image
+                }}
+              />
+              : <View/>
+            }
+          </View>
         </View>
       </TouchableHighlight>
     );
@@ -197,7 +198,8 @@ class HomeView extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#fff'
   },
   wrapper: {
     height: deviceWidth * 0.4
@@ -227,15 +229,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.5)'
   },
   text: {
-    color: '#4d4d4d',
+    color: '#384452',
     padding: 10,
     fontSize: normalize(18),
     textAlign: 'center'
   },
   newTitle: {
-    paddingTop: 40,
+    paddingTop: 25,
     paddingBottom: 0,
-    paddingLeft: 20,
+    paddingLeft: 15,
     alignItems: 'flex-start'
   },
   findMore: {
@@ -245,6 +247,29 @@ const styles = StyleSheet.create({
   moreButton: {
     marginTop: 15,
     marginBottom: 15
+  },
+  card: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginTop: 15,
+    flexDirection: 'row'
+  },
+  article: {
+    flex: 1
+  },
+  author: {
+    color: '#384452',
+    marginBottom: 10,
+    fontSize: normalize(12),
+    lineHeight: normalize(18)
+  },
+  description: {
+    color: '#384452',
+    marginBottom: 5,
+    paddingRight: 5,
+    fontSize: normalize(10),
+    lineHeight: normalize(18)
   }
 });
 
