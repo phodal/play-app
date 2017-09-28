@@ -15,6 +15,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-swiper';
+import moment from 'moment';
+require('moment/locale/zh-cn');
+
 
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
@@ -111,7 +114,7 @@ class HomeView extends Component {
               作者：{ item.user }
             </Text>
             <Text style={{marginBottom: 10, fontSize: normalize(12), lineHeight: normalize(18)}}>
-              日期：{ item.updated }
+              时间：{ moment(item.updated).fromNow() }
             </Text>
           </Card>
         </View>
