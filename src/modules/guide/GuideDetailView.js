@@ -25,8 +25,8 @@ class GuideDetailView extends Component {
   render() {
     let navigation = this.props.navigation;
     const {params} = navigation.state;
-    const title = params.title;
-    const url = URL.PLAY + `?query=${title}`;
+    const slug = params.slug;
+    const url = URL.PLAY + `?category=${slug}`;
 
     return (
       <PlayView navigation={navigation} url={url} />

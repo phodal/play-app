@@ -78,7 +78,6 @@ class PlayView extends Component {
   };
 
   fetchData() {
-    console.log(this.state.url)
     axios.get(this.state.url)
       .then(response => {
         this.setState({
