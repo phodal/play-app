@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-swiper';
-import SplashScreen from 'react-native-splash-screen';
 import Carousel from 'react-native-snap-carousel';
 
 import normalize from '../../wdui/helpers/normalizeText';
@@ -30,12 +29,6 @@ class HomeView extends Component {
   static displayName = 'HomeView';
 
   static navigationOptions = {
-    // header: <View style={{
-    //   backgroundColor: '#384452',
-    //   flexDirection: 'row',
-    //   height: Platform.OS === 'ios' ? 64 : 56
-    // }}
-    //  />,
     title: '首页推荐',
     tabBarIcon: (props) => (
         <Icon name='home' size={24} color={props.tintColor} />
@@ -60,7 +53,6 @@ class HomeView extends Component {
 
   componentWillMount() {
     this.fetchData();
-    SplashScreen.hide();
   }
 
   onRefresh() {

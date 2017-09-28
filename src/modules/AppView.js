@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {View, StyleSheet, StatusBar, ActivityIndicator} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
+
 import NavigatorViewContainer from './navigator/NavigatorViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
@@ -16,6 +18,7 @@ class AppView extends Component {
   };
 
   componentDidMount() {
+    SplashScreen.hide();
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
         const {dispatch} = this.props;
