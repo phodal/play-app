@@ -110,12 +110,15 @@ class HomeView extends Component {
         key={this.keyExtractor}>
         <View style={styles.card}>
           <View style={styles.article}>
+            {/*<View>*/}
+              {/*<Text style={styles.author}>*/}
+                {/*{item.user} 发表于 {moment(item.updated).fromNow()}*/}
+              {/*</Text>*/}
+            {/*</View>*/}
             <View>
-              <Text style={styles.author}>
-                {item.user} 发表于 {moment(item.updated).fromNow()}
+              <Text numberOfLines={2} style={styles.title}>
+                {item.title}
               </Text>
-            </View>
-            <View>
               <Text numberOfLines={2} style={styles.description}>
                 {item.description}
               </Text>
@@ -281,9 +284,12 @@ const styles = StyleSheet.create({
   },
   author: {
     color: '#384452',
-    marginBottom: 10,
     fontSize: normalize(12),
     lineHeight: normalize(18)
+  },
+  title: {
+    paddingTop: 5,
+    paddingBottom: 5
   },
   description: {
     color: '#384452',
