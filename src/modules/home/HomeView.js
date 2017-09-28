@@ -7,7 +7,6 @@ import {
   ScrollView,
   Text,
   Dimensions,
-  Platform,
   TouchableHighlight,
   ImageBackground
 } from 'react-native';
@@ -15,9 +14,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-swiper';
-import moment from 'moment';
 import SplashScreen from 'react-native-splash-screen';
-require('moment/locale/zh-cn');
+import Carousel from 'react-native-snap-carousel';
 
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
@@ -54,6 +52,8 @@ class HomeView extends Component {
     this.state = {
       loading: true,
       isRefreshing: false,
+      isLoadingCategory: false,
+      categories: [],
       data: []
     };
   }
@@ -80,6 +80,14 @@ class HomeView extends Component {
           data: response.data,
           isRefreshing: false,
           loading: false
+        });
+      });
+
+    axios.get(URL.CATEGORY)
+      .then(response => {
+        this.setState({
+          categories: response.data.results,
+          isLoadingCategory: false
         });
       });
   }
@@ -141,8 +149,22 @@ class HomeView extends Component {
     );
   };
 
+  renderCategoryItem({item}) {
+    const {navigate} = this.props.navigation;
+
+    return (
+      <TouchableHighlight
+        onPress={() => navigate('GuideDetailView', item)}
+        key={this.keyExtractor}>
+        <View style={styles.slide}>
+          <Text styles={styles.sldieTitle}>{ item.title }</Text>
+        </View>
+      </TouchableHighlight>
+    );
+  }
+
   render() {
-    if (this.state.loading) {
+    if (this.state.loading || this.state.isLoadingCategory) {
       return <Loading text={'数据加载中'} />;
     }
     const {top} = this.state.data;
@@ -178,6 +200,18 @@ class HomeView extends Component {
             {topElems}
           </Swiper>
         </View>
+        <View style={styles.carouselView}>
+          <Carousel
+            ref={(carousel) => {
+              this.carousel = carousel;
+            }}
+            data={this.state.categories}
+            renderItem={this.renderCategoryItem.bind(this)}
+            sliderWidth={deviceWidth * 2}
+            itemWidth={deviceWidth * 0.2}
+            firstItem={4}
+          />
+        </View>
         <View style={styles.newTitle}>
           <Text style={{paddingLeft: 15}}>最受欢迎玩法</Text>
         </View>
@@ -199,6 +233,9 @@ class HomeView extends Component {
             data={this.state.data.new}
             refreshing={this.state.isRefreshing}
             renderItem={this.renderList}
+            inactiveSlideScale={0.94}
+            inactiveSlideOpacity={0.6}
+            hasParallaxImages={true}
             onRefresh={this.onRefresh.bind(this)}
           />
         </View>
@@ -221,19 +258,17 @@ const styles = StyleSheet.create({
   wrapper: {
     height: deviceWidth * 0.4
   },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  carouselView: {
+    marginTop: 15
   },
-  slide2: {
+  slide: {
     flex: 1,
+    height: deviceWidth * 0.15,
+    width: deviceWidth * 0.3,
+    borderRadius: 4,
+    backgroundColor: 'rgba(56, 68, 62, 0.6)',
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
+    color: '#fff',
     alignItems: 'center'
   },
   textView: {
