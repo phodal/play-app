@@ -5417,6 +5417,10 @@ react-native-fast-image@^1.0.0:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-google-analytics-bridge@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-google-analytics-bridge/-/react-native-google-analytics-bridge-5.3.3.tgz#4a91e1fca5cf5d87b3211a301f851cfbadb16785"
+
 react-native-htmlview@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/react-native-htmlview/-/react-native-htmlview-0.12.0.tgz#9b19a7dccd38586c0aebf975e6083184685013a6"
