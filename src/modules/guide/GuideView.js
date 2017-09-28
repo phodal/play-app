@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#4d4d4d',
-    padding: 10,
+    padding: deviceWidth * 0.2,
     fontSize: normalize(18),
     textAlign: 'center'
   }
