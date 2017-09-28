@@ -88,6 +88,16 @@ class HomeView extends Component {
   renderList = ({item}) => {
     const {navigate} = this.props.navigation;
 
+    let categoriesElement = [];
+    if (item.categories && item.categories.length > 0) {
+      let categories = item.categories;
+      for (let i = 0; i < categories.length; i++) {
+        categoriesElement.push(
+          <Text key={i} style={styles.category}>{categories[i].title}</Text>
+        );
+      }
+    }
+
     return (
       <TouchableHighlight
         onPress={() => navigate('PlayDetailView', item)}
@@ -102,6 +112,11 @@ class HomeView extends Component {
             <View>
               <Text numberOfLines={2} style={styles.description}>
                 {item.description}
+              </Text>
+            </View>
+            <View>
+              <Text>
+                {categoriesElement}
               </Text>
             </View>
           </View>
@@ -226,7 +241,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#384452',
     padding: 10,
-    fontSize: normalize(18),
+    fontSize: normalize(16),
     textAlign: 'center'
   },
   newTitle: {
@@ -267,8 +282,18 @@ const styles = StyleSheet.create({
     color: '#384452',
     marginBottom: 5,
     paddingRight: 5,
-    fontSize: normalize(10),
+    fontSize: normalize(11),
     lineHeight: normalize(18)
+  },
+  category: {
+    padding: 1,
+    borderRadius: 1,
+    borderWidth: 1,
+    color: '#ccc',
+    marginLeft: 5,
+    fontSize: normalize(10),
+    lineHeight: normalize(11),
+    borderColor: '#51c4fe'
   }
 });
 
