@@ -107,8 +107,11 @@ class HomeView extends Component {
               }
             </View>
 
-            <Text style={{marginBottom: 10, fontSize: normalize(13), lineHeight: normalize(18)}}>
-              { item.description }
+            <Text style={{marginBottom: 10, fontSize: normalize(12), lineHeight: normalize(18)}}>
+              作者：{ item.user }
+            </Text>
+            <Text style={{marginBottom: 10, fontSize: normalize(12), lineHeight: normalize(18)}}>
+              日期：{ item.updated }
             </Text>
           </Card>
         </View>
@@ -152,6 +155,20 @@ class HomeView extends Component {
           <Swiper style={styles.wrapper} showsButtons={false} height={deviceWidth * 0.6}>
             {topElems}
           </Swiper>
+        </View>
+        <View style={styles.newTitle}>
+          <Divider />
+          <Text>最受欢迎玩法</Text>
+          <Divider />
+        </View>
+        <View>
+          <FlatList
+            keyExtractor={this.keyExtractor}
+            data={this.state.data.hot}
+            refreshing={this.state.isRefreshing}
+            renderItem={this.renderList}
+            onRefresh={this.onRefresh.bind(this)}
+          />
         </View>
         <View style={styles.newTitle}>
           <Divider />
@@ -213,9 +230,10 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   newTitle: {
-    paddingTop: 15,
-    paddingBottom: 5,
-    alignItems: 'center'
+    paddingTop: 40,
+    paddingBottom: 0,
+    paddingLeft: 20,
+    alignItems: 'flex-start'
   },
   findMore: {
     marginTop: 15,
