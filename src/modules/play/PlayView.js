@@ -44,7 +44,7 @@ class PlayView extends Component {
       isRefreshing: false,
       loadingMore: false,
       data: [],
-      url: this.props.url ? this.props.url : URL.PLAY
+      url: this.props.url || URL.PLAY
     };
   }
 
@@ -78,6 +78,7 @@ class PlayView extends Component {
   };
 
   fetchData() {
+    console.log(this.state.url)
     axios.get(this.state.url)
       .then(response => {
         this.setState({
