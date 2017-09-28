@@ -147,6 +147,18 @@ class PlayView extends Component {
     );
   };
 
+  renderListEmptyComponent() {
+    if (!this.state.data) {
+      return (<View />);
+    }
+
+    return (
+      <View style={styles.emptyComponent}>
+        <Icon name={'help-outline'} style={styles.errorIcon} />
+        <Text style={styles.errorText}>找不到相关的玩法</Text>
+      </View>
+    );
+  }
   render() {
     if (this.state.loading) {
       return <Loading text={'数据加载中'} />;
@@ -162,6 +174,7 @@ class PlayView extends Component {
             renderItem={this.renderList}
             onRefresh={this.onRefresh.bind(this)}
             ListFooterComponent={this.renderFooter}
+            ListEmptyComponent={this.renderListEmptyComponent.bind(this)}
             onEndReached={this.onEndReached.bind(this)}
           />
         </View>
@@ -177,6 +190,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
+  },
+  emptyComponent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  errorIcon: {
+    color: '#384452',
+    paddingTop: normalize(50),
+    fontSize: normalize(50)
+  },
+  errorText: {
+    paddingTop: normalize(18),
+    color: '#384452',
+    fontSize: normalize(18)
   }
 });
 
