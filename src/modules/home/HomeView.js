@@ -138,12 +138,40 @@ class HomeView extends Component {
     );
   };
 
-  renderCategoryItem({item}) {
+  getColor(index) {
+    if (index > 17) {
+      return {
+        color: '#fff'
+      };
+    }
+    const COLORS = [
+      '#99b433',      // Light Green
+      '#00a300',      // Green
+      '#1e7145',      // Dark Green
+      '#ff0097',      // Mangenta
+      '#9f00a7',      // Light Purple
+      '#7e3878',      // Purple
+      '#603cba',      // Dark Purple
+      '#1d1d1d',      // Darken
+      '#00aba9',      // Team
+      '#eff4ff',      // Light Blue
+      '#2d89ef',      // Blue
+      '#2b5797',      // Dark Blue
+      '#ffc40d',      // Yellow
+      '#e3a21a',      // Orange
+      '#da532c',      // Dark Orange
+      '#ee1111',      // Red
+      '#b91d47'      // Dark Red
+    ];
+    return COLORS[index];
+  }
+
+  renderCategoryItem({item, index}) {
     const {navigate} = this.props.navigation;
 
     return (
       <TouchableHighlight
-        style={styles.slide}
+        style={[styles.slide, {backgroundColor: this.getColor(index)}]}
         onPress={() => navigate('GuideDetailView', item)}
         key={this.keyExtractor}>
         <View>
@@ -199,7 +227,7 @@ class HomeView extends Component {
             renderItem={this.renderCategoryItem.bind(this)}
             sliderWidth={deviceWidth}
             itemWidth={deviceWidth * 0.12}
-            firstItem={3}
+            firstItem={2}
           />
         </View>
         <View style={styles.newTitle}>
