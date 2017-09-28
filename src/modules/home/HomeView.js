@@ -93,7 +93,9 @@ class HomeView extends Component {
       let categories = item.categories;
       for (let i = 0; i < categories.length; i++) {
         categoriesElement.push(
-          <Text key={i} style={styles.category}>{categories[i].title}</Text>
+          <View key={i} style={styles.category}>
+            <Text style={styles.categoryText}>{categories[i].title}</Text>
+          </View>
         );
       }
     }
@@ -114,10 +116,8 @@ class HomeView extends Component {
                 {item.description}
               </Text>
             </View>
-            <View>
-              <Text>
-                {categoriesElement}
-              </Text>
+            <View style={styles.categories}>
+              {categoriesElement}
             </View>
           </View>
           <View>
@@ -199,7 +199,10 @@ class HomeView extends Component {
           />
         </View>
         <View class={styles.findMore}>
-          <Button backgroundColor={'#00b3fe'} class={styles.moreButton} title={'查看更多'} onPress={() => navigate('Play')} />
+          <Button backgroundColor={'#00b3fe'}
+                  class={styles.moreButton}
+                  title={'查看更多'}
+                  onPress={() => navigate('Play')} />
         </View>
       </ScrollView>
     );
@@ -286,14 +289,17 @@ const styles = StyleSheet.create({
     lineHeight: normalize(18)
   },
   category: {
-    padding: 1,
-    borderRadius: 1,
-    borderWidth: 1,
-    color: '#ccc',
-    marginLeft: 5,
-    fontSize: normalize(10),
-    lineHeight: normalize(11),
     borderColor: '#51c4fe'
+  },
+  categoryText: {
+    color: '#444',
+    paddingRight: 5,
+    fontSize: normalize(10),
+    lineHeight: normalize(11)
+  },
+  categories: {
+    flex: 1,
+    flexDirection: 'row'
   }
 });
 
