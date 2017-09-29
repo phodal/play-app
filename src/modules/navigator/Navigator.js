@@ -43,16 +43,28 @@ MainScreenNavigator.navigationOptions = {
 
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
-  Home: {screen: MainScreenNavigator},
-  Play: {screen: PlayViewContainer},
-  Guide: {screen: GuideViewContainer},
-  About: {screen: AboutViewContainer},
+  Home: {
+    path: '/',
+    screen: MainScreenNavigator
+  },
+  Play: {
+    screen: PlayViewContainer,
+    path: 'play/'
+  },
+  Guide: {
+    path: 'play/',
+    screen: GuideViewContainer
+  },
+  About: {
+    path: 'about/',
+    screen: AboutViewContainer
+  },
   PlayDetailView: {
-    // path: 'play/:slug',
+    path: 'play/:slug',
     screen: PlayDetailViewContainer
   },
   GuideDetailView: {
-    // path: 'play/:slug',
+    path: 'play/category/:category',
     screen: GuideDetailContainer
   }
 }, {
