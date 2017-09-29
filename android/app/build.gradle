@@ -155,6 +155,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-google-analytics-bridge')
     compile project(':react-native-splash-screen')
     compile project(':react-native-device-info')
     compile project(':react-native-fast-image')
