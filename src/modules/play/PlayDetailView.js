@@ -13,6 +13,7 @@ import {URL} from '../../constants';
 import MarkdownHelper from '../../utils/MarkdownHelper';
 import NativeHtmlViewRender from '../../wdui/NativeHtmlViewRender';
 import Divider from '../../wdui/Divider';
+import normalize from '../../wdui/helpers/normalizeText';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -51,6 +52,9 @@ class PlayDetailView extends Component {
             }
           </View>
           <Text style={styles.title}>{ params.title }</Text>
+          <View style={styles.authorInfo}>
+            <Text style={styles.author}>{ params.user }</Text>
+          </View>
           <Divider />
           <NativeHtmlViewRender
             html={htmlContent}
@@ -71,8 +75,18 @@ const styles = StyleSheet.create({
   title: {
     color: '#384452',
     alignItems: 'center',
-    fontSize: 24,
+    fontSize: normalize(18),
     padding: 10,
+    backgroundColor: '#fff'
+  },
+  authorInfo: {
+    alignItems: 'center',
+    backgroundColor: '#fff'
+  },
+  author: {
+    color: '#384452',
+    fontSize: normalize(12),
+    padding: 5,
     backgroundColor: '#fff'
   }
 });
