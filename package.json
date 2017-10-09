@@ -26,7 +26,8 @@
     "lint": "eslint src test",
     "coverage": "rimraf coverage && jest --coverage",
     "release": "cd android && ./gradlew assembleRelease",
-    "version": "support/version-ios.sh"
+    "version": "support/version-ios.sh",
+    "assets": "support/assets.sh"
   },
   "jest": {
     "preset": "react-native",

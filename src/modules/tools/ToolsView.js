@@ -6,7 +6,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {List, ListItem} from 'react-native-elements';
 
-const baseUrl = '../cheatsheets/pinout/';
+const baseUrl = 'assets://cheatsheets/pinout/';
 
 const ARDUINO_PINOUT = [{
   name: 'Arduino Uno',

@@ -51,11 +51,10 @@ class PDFView extends React.Component {
 
   render() {
     const {params} = this.props.navigation.state;
-    let source = {uri: params};  // ios only
-    // let source = {uri: 'bundle-assets://test.pdf'};
-
-    //let source = {uri:'file:///sdcard/test.pdf'};
-    //let source = {uri:"data:application/pdf;base64,......"};
+    let source = require('../cheatsheets/pinout/arduino-uno.pdf');  // ios only
+    if (!__DEV__) {
+      source = {uri: params};
+    }
 
     return (
       <View style={styles.container}>
