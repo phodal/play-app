@@ -30,7 +30,7 @@ class ToolsView extends Component {
     return (
       <View style={styles.container} >
         <PhotoView
-          source={require('../../pinout/esp8266_esp_201_module_pinout_diagram_cheat_sheet.png')}
+          source={require('../../cheatsheets/pinout/esp8266_esp_201_module_pinout_diagram_cheat_sheet.png')}
           minimumZoomScale={1}
           maximumZoomScale={4}
           androidScaleType='center'
