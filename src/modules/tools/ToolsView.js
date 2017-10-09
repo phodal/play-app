@@ -4,6 +4,7 @@ import {
   View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PDFView from '../../wdui/PDFView';
 
 class ToolsView extends Component {
   static displayName = 'ToolsView';
@@ -22,7 +23,9 @@ class ToolsView extends Component {
 
   render() {
     return (
-      <View style={styles.container} />
+      <View style={styles.container} >
+        <PDFView />
+      </View>
     );
   }
 }
