@@ -8,6 +8,7 @@ import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
 import GuideDetailContainer from '../guide/GuideDetailContainer';
 import ToolsViewContainer from '../tools/ToolsViewContainer';
+import PDFView from '../../wdui/PDFView';
 
 const headerColor = '#384452';
 const activeColor = '#fff';
@@ -70,8 +71,12 @@ const AppNavigator = StackNavigator({
     screen: GuideDetailContainer
   },
   ToolsView: {
-    path: 'play/tools/',
+    path: 'tools/',
     screen: ToolsViewContainer
+  },
+  PDFView: {
+    path: 'tools/:source',
+    screen: PDFView
   }
 }, {
   navigationOptions: {

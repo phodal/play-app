@@ -37,7 +37,7 @@ class PDFView extends React.Component {
       this.setState({page: prePage});
       console.log(`prePage: ${prePage}`);
     }
-  }
+  };
 
   nextPage=() => {
     if (this.pdf) {
@@ -50,8 +50,8 @@ class PDFView extends React.Component {
   }
 
   render() {
-    //let source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',cache:true};
-    let source = require('../pdf-assets/arduino-uno.pdf');  // ios only
+    const {params} = this.props.navigation.state;
+    let source = {uri: params};  // ios only
     // let source = {uri: 'bundle-assets://test.pdf'};
 
     //let source = {uri:'file:///sdcard/test.pdf'};
