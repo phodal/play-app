@@ -7,6 +7,7 @@ import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
 import GuideDetailContainer from '../guide/GuideDetailContainer';
+import ToolsViewContainer from '../tools/ToolsViewContainer';
 
 const headerColor = '#384452';
 const activeColor = '#fff';
@@ -17,6 +18,7 @@ export const MainScreenNavigator = TabNavigator(
     Home: {screen: HomeViewContainer},
     Play: {screen: PlayViewContainer},
     Guide: {screen: GuideViewContainer},
+    Tools: {screen: ToolsViewContainer},
     About: {screen: AboutViewContainer}
   },
   {
@@ -66,6 +68,10 @@ const AppNavigator = StackNavigator({
   GuideDetailView: {
     path: 'play/category/:category',
     screen: GuideDetailContainer
+  },
+  ToolsView: {
+    path: 'play/tools/',
+    screen: ToolsViewContainer
   }
 }, {
   navigationOptions: {
