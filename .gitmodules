@@ -1,0 +1,3 @@
+[submodule "src/cheatsheets"]
+	path = src/cheatsheets
+	url = https://github.com/phodal/awesome-hardware-cheatsheet
