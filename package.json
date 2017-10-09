@@ -25,6 +25,7 @@
     "test:watch": "jest --watch",
     "lint": "eslint src test",
     "coverage": "rimraf coverage && jest --coverage",
+    "release": "cd android && ./gradlew assembleRelease",
     "version": "support/version-ios.sh"
   },
   "jest": {
