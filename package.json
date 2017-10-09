@@ -40,7 +40,6 @@
     "axios": "^0.16.2",
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",
-    "highlightjs": "^9.10.0",
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "lodash.isstring": "^4.0.1",
