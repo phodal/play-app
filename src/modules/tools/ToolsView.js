@@ -1,15 +1,10 @@
 import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
-  Dimensions,
-  View
+  ScrollView
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-// import PDFView from '../../wdui/PDFView';
-import PhotoView from 'react-native-photo-view';
-
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+import {List, ListItem} from 'react-native-elements';
 
 class ToolsView extends Component {
   static displayName = 'ToolsView';
@@ -28,26 +23,31 @@ class ToolsView extends Component {
 
   render() {
     return (
-      <View style={styles.container} >
-        <PhotoView
-          source={require('../../cheatsheets/pinout/esp8266_esp_201_module_pinout_diagram_cheat_sheet.png')}
-          minimumZoomScale={1}
-          maximumZoomScale={4}
-          androidScaleType='center'
-          onLoad={() => console.log('Image loaded!')}
-          style={{width: deviceWidth, height: deviceHeight}} />
-        {/*<PDFView />*/}
-      </View>
+      <ScrollView style={styles.container} >
+        <List>
+          <ListItem title={'Arduino UNO'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Due'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Esplora'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Leonardo'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Mega'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Micro'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Mini'} leftIcon={{name: 'developer-board'}} />
+          <ListItem title={'Arduino Pro Mini'} leftIcon={{name: 'developer-board'}} />
+        </List>
+        <List>
+          <ListItem title={'ESP8266'} leftIcon={{name: 'developer-board'}} />
+        </List>
+        <List>
+          <ListItem title={'Raspberry Pi 2 Model B'} leftIcon={{name: 'developer-board'}} />
+        </List>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white'
+    flex: 1
   }
 });
 

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
-    View,
-    StyleSheet
+    View
 } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
