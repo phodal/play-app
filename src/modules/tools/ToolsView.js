@@ -1,10 +1,12 @@
 import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
-  ScrollView
+  ScrollView, ListView
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {List, ListItem} from 'react-native-elements';
+
+const baseUrl = '../cheatsheets/pinout/';
 
 const ARDUINO_PINOUT = [{
   name: 'Arduino Uno',
@@ -40,6 +42,19 @@ class ToolsView extends Component {
     navigate: PropTypes.func.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
+
+    this.state = {
+      dataSource: ds.cloneWithRows(ARDUINO_PINOUT)
+    };
+
+    this.renderRow = this.renderRow.bind(this);
+  }
+
   static navigationOptions = {
     title: '工具',
     tabBarIcon: (props) => (
@@ -47,21 +62,30 @@ class ToolsView extends Component {
     )
   };
 
+  renderRow(rowData, sectionID) {
+    const {navigate} = this.props.navigation;
+    return (
+      <ListItem
+        leftIcon={{name: 'developer-board'}}
+        key={sectionID}
+        title={rowData.name}
+        onPress={() => {
+          navigate('PDFView', baseUrl + rowData.file);
+        }}
+      />
+    );
+  }
+
   render() {
     const {navigate} = this.props.navigation;
-    const baseUrl = '../cheatsheets/pinout/';
 
     return (
       <ScrollView style={styles.container} >
         <List>
-          <ListItem title={'Arduino UNO'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Due'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Esplora'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Leonardo'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Mega'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Micro'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Mini'} leftIcon={{name: 'developer-board'}} />
-          <ListItem title={'Arduino Pro Mini'} leftIcon={{name: 'developer-board'}} />
+          <ListView
+            renderRow={this.renderRow}
+            dataSource={this.state.dataSource}
+          />
         </List>
         <List>
           <ListItem
