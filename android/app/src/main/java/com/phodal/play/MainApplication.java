@@ -12,6 +12,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.soloader.SoLoader;
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,11 +29,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
-            new SplashScreenReactPackage(),
-            new RNDeviceInfo(),
-            new FastImageViewPackage(),
-            new RNSpinkitPackage(),
-        new VectorIconsPackage()
+        new SplashScreenReactPackage(),
+        new RNDeviceInfo(),
+        new FastImageViewPackage(),
+        new RNSpinkitPackage(),
+        new VectorIconsPackage(),
+        new GoogleAnalyticsBridgePackage()
       );
     }
   };
