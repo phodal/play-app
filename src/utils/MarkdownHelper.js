@@ -24,10 +24,11 @@ export default class MarkdownHelper {
     if (!isString(str)) {
       return '';
     }
-    let width = options.width;
+    let paddingWidth = 20;
+    let width = options.width - paddingWidth;
     let height = width * 0.6;
     let html = md.render(str);
-    html.replace(new RegExp('<p>', 'g'), '<span>')
+    html = html.replace(new RegExp('<p>', 'g'), '<span>')
         .replace(new RegExp('</p>', 'g'), '</span>')
         .replace('src="/static/media/uploads/',
           `width="${width}" height="${height}" src="https://www.wandianshenme.com/static/media/uploads/`);
