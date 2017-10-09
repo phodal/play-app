@@ -7,6 +7,19 @@ import HTMLView from 'react-native-htmlview';
 
 import normalize from './helpers/normalizeText';
 
+// TODO: add syntax-highlighter support
+// // // eslint-disable-next-line consistent-return,no-unused-vars
+// // function renderNode(node, index, siblings, parent, defaultRenderer) {
+// //   if (node.name === 'pre') {
+// //     const codeString = node.children[0].children[0].data + '';
+// //     return (
+// //       <View style={styles.container} key={index}>
+// //         {codeString}
+// //       </View>
+// //     );
+// //   }
+// }
+
 class NativeHtmlViewRender extends Component {
   static propTypes = {
     html: PropTypes.string.isRequired
@@ -24,6 +37,7 @@ class NativeHtmlViewRender extends Component {
           value={html}
           style={styles.htmlView}
           stylesheet={styles}
+          // renderNode={renderNode}
           addLineBreaks={false}
         />
     );
