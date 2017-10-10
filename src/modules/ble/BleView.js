@@ -53,6 +53,7 @@ export default class App extends Component {
           title={'扫描'}
           onPress={() => {
             params.startScan();
+            params.handleState();
           }}
         />
       )
@@ -93,7 +94,15 @@ export default class App extends Component {
         }
       });
     }
-    this.props.navigation.setParams({startScan: this.startScan.bind(this)});
+
+    this.props.navigation.setParams({
+      startScan: this.startScan.bind(this),
+      handleState: this.getState.bind(this)
+    });
+  }
+
+  getState() {
+    return this.state.scanning;
   }
 
   handleAppStateChange(nextAppState) {
