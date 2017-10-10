@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingBottom: 20
+    alignItems: 'center'
   },
   pdf: {
     flex: 1,
