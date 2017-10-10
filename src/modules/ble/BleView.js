@@ -83,7 +83,7 @@ export default class App extends Component {
         console.log('The bluetooh is already enabled or the user confirm');
       })
       .catch((error) => {
-        console.log(error);
+        this.props.navigation.goBack();
       });
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
