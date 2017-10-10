@@ -6,7 +6,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {List, ListItem} from 'react-native-elements';
 
-const baseUrl = 'bundle-assets://cheatsheets/pinout/';
+const baseUrl = 'bundle-assets://cheatsheets/';
 
 const ARDUINO_PINOUT = [{
   name: 'Arduino Uno',
@@ -85,6 +85,15 @@ class ToolsView extends Component {
     return (
       <ScrollView style={styles.container} >
         <List>
+          <ListItem
+            title={'Arduino 编程速查表'}
+            leftIcon={{name: 'developer-board'}}
+            onPress={() => {
+              navigate('PDFView', baseUrl + 'programming/arduino-cheat-sheet.pdf');
+            }}
+          />
+        </List>
+        <List>
           <ListView
             renderRow={this.renderRow}
             dataSource={this.state.dataSource}
@@ -95,7 +104,7 @@ class ToolsView extends Component {
             title={'ESP8266'}
             leftIcon={{name: 'developer-board'}}
             onPress={() => {
-              navigate('PDFView', baseUrl + 'esp8266_devkit.pdf');
+              navigate('PDFView', baseUrl + 'pinout/esp8266_devkit.pdf');
             }}
           />
         </List>
@@ -104,7 +113,7 @@ class ToolsView extends Component {
             title={'Raspberry Pi 2 Model B'}
             leftIcon={{name: 'developer-board'}}
             onPress={() => {
-              navigate('PDFView', baseUrl + 'raspberry-rpi2-model-b.pdf');
+              navigate('PDFView', baseUrl + 'pinout/raspberry-rpi2-model-b.pdf');
             }}
           />
         </List>

@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import Pdf from 'react-native-pdf';
-const deviceWidth = Dimensions.get('window').width;
 
 class PDFView extends Component {
   static displayName = 'PlayDetailView';
