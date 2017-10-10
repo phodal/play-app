@@ -104,11 +104,6 @@ class HomeView extends Component {
         key={this.keyExtractor}>
         <View style={styles.card}>
           <View style={styles.article}>
-            {/*<View>*/}
-              {/*<Text style={styles.author}>*/}
-                {/*{item.user} 发表于 {moment(item.updated).fromNow()}*/}
-              {/*</Text>*/}
-            {/*</View>*/}
             <View>
               <Text numberOfLines={2} style={styles.title}>
                 {item.title}
@@ -310,8 +305,8 @@ const styles = StyleSheet.create({
     marginTop: 25,
     paddingBottom: 0,
     marginLeft: 15,
-    borderLeftWidth: 2,
-    borderLeftColor: '#51c4fe',
+    borderLeftWidth: 3,
+    borderLeftColor: '#e71d32',
     alignItems: 'flex-start'
   },
   findMore: {
@@ -327,6 +322,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 15,
+    paddingBottom: 2,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.3)',
     flexDirection: 'row'
