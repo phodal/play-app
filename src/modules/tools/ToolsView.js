@@ -1,7 +1,9 @@
 import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
-  ScrollView, ListView
+  ScrollView,
+  ListView,
+  FlatList
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {List, ListItem} from 'react-native-elements';
@@ -44,15 +46,6 @@ class ToolsView extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-
-    this.state = {
-      dataSource: ds.cloneWithRows(ARDUINO_PINOUT)
-    };
-
-    this.renderRow = this.renderRow.bind(this);
   }
 
   static navigationOptions = ({navigation}) => {
@@ -74,17 +67,19 @@ class ToolsView extends Component {
     };
   };
 
-  renderRow(rowData, sectionID) {
+  keyExtractor = (item, index) => `key${index}`;
+
+  renderList = ({item, index}) => {
     const {navigate} = this.props.navigation;
     return (
       <ListItem
         leftIcon={{name: 'developer-board'}}
-        key={sectionID}
-        title={rowData.name}
+        key={index}
+        title={item.name}
         onPress={() => {
           navigate('PDFView', {
-            title: rowData.name,
-            uri: baseUrl + 'pinout/' + rowData.file
+            title: item.name,
+            uri: baseUrl + 'pinout/' + item.file
           });
         }}
       />
@@ -109,9 +104,10 @@ class ToolsView extends Component {
           />
         </List>
         <List>
-          <ListView
-            renderRow={this.renderRow}
-            dataSource={this.state.dataSource}
+          <FlatList
+            keyExtractor={this.keyExtractor}
+            data={ARDUINO_PINOUT}
+            renderItem={this.renderList}
           />
         </List>
         <List>
