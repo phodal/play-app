@@ -7,7 +7,6 @@ import it.innove.BleManagerPackage;
 import com.reactnative.photoview.PhotoViewPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import org.wonday.pdf.RCTPdfView;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.dylanvann.fastimage.FastImageViewPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
@@ -33,11 +32,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
-            new BleManagerPackage(),
-            new PhotoViewPackage(),
-            new RNFetchBlobPackage(),
-            new RCTPdfView(),
-        new SplashScreenReactPackage(),
+        new BleManagerPackage(),
+        new PhotoViewPackage(),
+        new RNFetchBlobPackage(),
+        new RCTPdfView(),
         new RNDeviceInfo(),
         new FastImageViewPackage(),
         new RNSpinkitPackage(),

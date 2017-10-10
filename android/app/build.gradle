@@ -164,7 +164,6 @@ dependencies {
     compile project(':react-native-fetch-blob')
     compile project(':react-native-pdf')
     compile project(':react-native-google-analytics-bridge')
-    compile project(':react-native-splash-screen')
     compile project(':react-native-device-info')
     compile project(':react-native-fast-image')
     compile project(':react-native-spinkit')
