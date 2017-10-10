@@ -70,7 +70,10 @@ class ToolsView extends Component {
         key={sectionID}
         title={rowData.name}
         onPress={() => {
-          navigate('PDFView', baseUrl + rowData.file);
+          navigate('PDFView', {
+            title: rowData.name,
+            uri: baseUrl + rowData.file
+          });
         }}
       />
     );

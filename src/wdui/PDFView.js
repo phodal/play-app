@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Dimensions,
@@ -7,7 +7,13 @@ import {
 
 import Pdf from 'react-native-pdf';
 
-class PDFView extends React.Component {
+class PDFView extends Component {
+  static displayName = 'PlayDetailView';
+
+  static navigationOptions = ({navigation}) => ({
+    title: `${navigation.state.params.title}`
+  });
+
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +27,7 @@ class PDFView extends React.Component {
     const {params} = this.props.navigation.state;
     let source = require('../cheatsheets/pinout/esp8266_devkit.pdf');  // ios only
     if (!__DEV__) {
-      source = {uri: params};
+      source = {uri: params.uri};
     }
 
     return (
@@ -52,7 +58,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingBottom: 20
   },
   pdf: {
     flex: 1,
