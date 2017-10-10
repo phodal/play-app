@@ -135,10 +135,9 @@ class HomeView extends Component {
 
   getColor(index) {
     if (index > 17) {
-      return {
-        color: '#fff'
-      };
+      return '#fff';
     }
+
     const COLORS = [
       '#99b433',      // Light Green
       '#00a300',      // Green
@@ -169,8 +168,13 @@ class HomeView extends Component {
         style={[styles.slide, {backgroundColor: this.getColor(index)}]}
         onPress={() => navigate('GuideDetailView', item)}
         key={this.keyExtractor}>
-        <View>
-          <Text style={styles.slideTitle}>{ item.title }</Text>
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+          <View>
+            <Icon name='build' size={normalize(12)} color={'#fff'} />
+          </View>
+          <View>
+            <Text style={styles.slideTitle}>{ item.title }</Text>
+          </View>
         </View>
       </TouchableHighlight>
     );
@@ -218,11 +222,12 @@ class HomeView extends Component {
             ref={(carousel) => {
               this.carousel = carousel;
             }}
+            autoplay
             data={this.state.categories.reverse()}
             renderItem={this.renderCategoryItem.bind(this)}
             sliderWidth={deviceWidth}
             itemWidth={deviceWidth * 0.12}
-            firstItem={2}
+            firstItem={4}
           />
         </View>
         <View style={styles.newTitle}>
@@ -276,6 +281,7 @@ const styles = StyleSheet.create({
   },
   slide: {
     flex: 1,
+    flexDirection: 'row',
     height: deviceWidth * 0.12,
     width: deviceWidth * 0.3,
     borderRadius: 4,
@@ -284,6 +290,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   slideTitle: {
+    fontSize: normalize(14),
+    paddingLeft: 6,
+    justifyContent: 'center',
     color: '#fff'
   },
   textView: {

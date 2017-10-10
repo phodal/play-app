@@ -4979,9 +4979,9 @@ react-native-side-menu@^1.0.2:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-snap-carousel@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.2.3.tgz#fb42ef33b4e27f39b20bbbc9a799f8993a162c28"
+react-native-snap-carousel@^3.3.2:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.3.3.tgz#3ecd126c1b7bd720086f1a40ef9e23553020818d"
   dependencies:
     prop-types "^15.5.10"
     react-addons-shallow-compare "15.6.0"
