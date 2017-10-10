@@ -253,7 +253,13 @@ class HomeView extends Component {
             renderItem={this.renderCategoryItem.bind(this)}
             sliderWidth={deviceWidth}
             itemWidth={deviceWidth * 0.12}
-            firstItem={3}
+            firstItem={1}
+            loopClonesPerSide={2}
+            enableMomentum={false}
+            autoplay={true}
+            autoplayDelay={500}
+            autoplayInterval={3000}
+
           />
         </View>
         <View style={styles.newTitle}>
