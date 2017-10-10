@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import FastImage from 'react-native-fast-image';
 import Swiper from 'react-native-swiper';
-import Carousel from 'react-native-snap-carousel';
 
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
@@ -243,21 +242,11 @@ class HomeView extends Component {
           </Swiper>
         </View>
         <View style={styles.carouselView}>
-          <Carousel
-            ref={(carousel) => {
-              this.carousel = carousel;
-            }}
+          <FlatList
+            horizontal
             data={this.state.categories.reverse()}
             renderItem={this.renderCategoryItem.bind(this)}
-            sliderWidth={deviceWidth}
-            itemWidth={deviceWidth * 0.12}
-            firstItem={1}
-            loopClonesPerSide={2}
-            enableMomentum={false}
-            autoplay={true}
-            autoplayDelay={500}
-            autoplayInterval={3000}
-
+            keyExtractor={this.keyExtractor}
           />
         </View>
         <View>
@@ -314,6 +303,7 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     flexDirection: 'row',
+    marginLeft: 10,
     height: deviceWidth * 0.12,
     width: deviceWidth * 0.3,
     borderRadius: 4,

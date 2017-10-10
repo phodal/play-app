@@ -4817,13 +4817,6 @@ react-addons-pure-render-mixin@^15.4.0:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-addons-shallow-compare@15.6.0:
-  version "15.6.0"
-  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.0.tgz#b7a4e5ff9f2704c20cf686dd8a05dd08b26de252"
-  dependencies:
-    fbjs "^0.8.4"
-    object-assign "^4.1.0"
-
 react-addons-test-utils@^15.4.0:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.4.2.tgz#93bcaa718fcae7360d42e8fb1c09756cc36302a2"
@@ -4978,13 +4971,6 @@ react-native-side-menu@^1.0.2:
   resolved "https://registry.yarnpkg.com/react-native-side-menu/-/react-native-side-menu-1.1.3.tgz#6ef5d2232ecf718312df6cedef019148bac3073a"
   dependencies:
     prop-types "^15.5.10"
-
-react-native-snap-carousel@^3.3.2:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.3.3.tgz#3ecd126c1b7bd720086f1a40ef9e23553020818d"
-  dependencies:
-    prop-types "^15.5.10"
-    react-addons-shallow-compare "15.6.0"
 
 react-native-spinkit@^1.1.1:
   version "1.1.1"
