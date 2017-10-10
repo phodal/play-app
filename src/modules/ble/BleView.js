@@ -81,9 +81,9 @@ export default class App extends Component {
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
         if (result) {
-          console.log('Permission is OK');
+          console.log('ACCESS_COARSE_LOCATION Permission is OK');
         } else {
-          PermissionsAndroid.requestPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
+          PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
             .then((access_result) => {
               if (access_result) {
                 console.log('User accept');
