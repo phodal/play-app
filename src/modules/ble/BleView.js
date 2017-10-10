@@ -1,3 +1,4 @@
+/* eslint-disable max-nested-callbacks */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -68,23 +69,27 @@ export default class App extends Component {
 
     BleManager.start({showAlert: false});
 
-    this.handlerDiscover = bleManagerEmitter.addListener('BleManagerDiscoverPeripheral', this.handleDiscoverPeripheral);
+    this.handlerDiscover = bleManagerEmitter.addListener('BleManagerDiscoverPeripheral',
+      this.handleDiscoverPeripheral);
     this.handlerStop = bleManagerEmitter.addListener('BleManagerStopScan', this.handleStopScan);
-    this.handlerDisconnect = bleManagerEmitter.addListener('BleManagerDisconnectPeripheral', this.handleDisconnectedPeripheral);
-    this.handlerUpdate = bleManagerEmitter.addListener('BleManagerDidUpdateValueForCharacteristic', this.handleUpdateValueForCharacteristic);
+    this.handlerDisconnect = bleManagerEmitter.addListener('BleManagerDisconnectPeripheral',
+      this.handleDisconnectedPeripheral);
+    this.handlerUpdate = bleManagerEmitter.addListener('BleManagerDidUpdateValueForCharacteristic',
+      this.handleUpdateValueForCharacteristic);
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
         if (result) {
           console.log('Permission is OK');
         } else {
-          PermissionsAndroid.requestPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((access_result) => {
-            if (access_result) {
-              console.log('User accept');
-            } else {
-              console.log('User refuse');
-            }
-          });
+          PermissionsAndroid.requestPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
+            .then((access_result) => {
+              if (access_result) {
+                console.log('User accept');
+              } else {
+                console.log('User refuse');
+              }
+            });
         }
       });
     }
@@ -120,7 +125,8 @@ export default class App extends Component {
   }
 
   handleUpdateValueForCharacteristic(data) {
-    console.log('Received data from ' + data.peripheral + ' characteristic ' + data.characteristic, data.value);
+    console.log('Received data from ' + data.peripheral + ' characteristic ' +
+      data.characteristic, data.value);
   }
 
   handleStopScan() {
@@ -139,7 +145,7 @@ export default class App extends Component {
   }
 
   handleDiscoverPeripheral(peripheral) {
-    var peripherals = this.state.peripherals;
+    let peripherals = this.state.peripherals;
     if (!peripherals.has(peripheral.id)) {
       console.log('Got ble peripheral', peripheral);
       peripherals.set(peripheral.id, peripheral);
@@ -176,9 +182,9 @@ export default class App extends Component {
             // https://github.com/sandeepmistry/bleno/tree/master/examples/pizza
             BleManager.retrieveServices(peripheral.id).then((peripheralInfo) => {
               console.log(peripheralInfo);
-              var service = '13333333-3333-3333-3333-333333333337';
-              var bakeCharacteristic = '13333333-3333-3333-3333-333333330003';
-              var crustCharacteristic = '13333333-3333-3333-3333-333333330001';
+              let service = '13333333-3333-3333-3333-333333333337';
+              let bakeCharacteristic = '13333333-3333-3333-3333-333333330003';
+              let crustCharacteristic = '13333333-3333-3333-3333-333333330001';
 
               this.setTimeout(() => {
                 BleManager.startNotification(peripheral.id, service, bakeCharacteristic).then(() => {
@@ -186,7 +192,7 @@ export default class App extends Component {
                   this.setTimeout(() => {
                     BleManager.write(peripheral.id, service, crustCharacteristic, [0]).then(() => {
                       console.log('Writed NORMAL crust');
-                      BleManager.write(peripheral.id, service, bakeCharacteristic, [1,95]).then(() => {
+                      BleManager.write(peripheral.id, service, bakeCharacteristic, [1, 95]).then(() => {
                         console.log('Writed 351 temperature, the pizza should be BAKED');
                         /*
                         var PizzaBakeResult = {
@@ -220,9 +226,7 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={{marginTop: 40,margin: 20, padding: 20, backgroundColor: '#ccc'}} onPress={() => this.startScan() }>
-          <Text>Scan Bluetooth ({this.state.scanning ? 'on' : 'off'})</Text>
-        </TouchableHighlight>
+        <Text style={{textAlign: 'center', padding: 10}}>{this.state.scanning ? '扫描中...' : ''}</Text>
         <ScrollView style={styles.scroll}>
           {(list.length === 0) &&
           <View style={{flex: 1, margin: 20}}>
@@ -235,10 +239,20 @@ export default class App extends Component {
             renderRow={(item) => {
               const color = item.connected ? 'green' : '#fff';
               return (
-                <TouchableHighlight onPress={() => this.test(item) }>
+                <TouchableHighlight onPress={() => this.test(item)}>
                   <View style={[styles.row, {backgroundColor: color}]}>
-                    <Text style={{fontSize: 12, textAlign: 'center', color: '#333333', padding: 10}}>{item.name}</Text>
-                    <Text style={{fontSize: 8, textAlign: 'center', color: '#333333', padding: 10}}>{item.id}</Text>
+                    <Text style={{
+                      fontSize: 12,
+                      textAlign: 'center',
+                      color: '#333333',
+                      padding: 10
+                    }}>{item.name}</Text>
+                    <Text style={{
+                      fontSize: 8,
+                      textAlign: 'center',
+                      color: '#333333',
+                      padding: 10
+                    }}>{item.id}</Text>
                   </View>
                 </TouchableHighlight>
               );
@@ -255,7 +269,7 @@ reactMixin(App.prototype, TimerMixin);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
     width: window.width,
     height: window.height
   },
