@@ -11,6 +11,7 @@ import {
   PermissionsAndroid,
   ListView,
   ScrollView,
+  Button,
   AppState
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
@@ -24,8 +25,8 @@ const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
 export default class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       scanning: false,
@@ -39,6 +40,21 @@ export default class App extends Component {
     this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(this);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
+
+  static navigationOptions = ({navigation}) => {
+    const {navigate} = navigation;
+    return {
+      title: '蓝牙',
+      headerRight: (
+        <Button
+              title={'扫描'}
+              onPress={() => {
+                navigate('BleView');
+              }}
+        />
+      )
+    };
+  };
 
   componentDidMount() {
     AppState.addEventListener('change', this.handleAppStateChange);
@@ -201,7 +217,7 @@ export default class App extends Component {
           <Text>Scan Bluetooth ({this.state.scanning ? 'on' : 'off'})</Text>
         </TouchableHighlight>
         <ScrollView style={styles.scroll}>
-          {(list.length == 0) &&
+          {(list.length === 0) &&
           <View style={{flex: 1, margin: 20}}>
             <Text style={{textAlign: 'center'}}>No peripherals</Text>
           </View>
