@@ -72,7 +72,7 @@ class ToolsView extends Component {
         onPress={() => {
           navigate('PDFView', {
             title: rowData.name,
-            uri: baseUrl + 'programming/' + rowData.file
+            uri: baseUrl + 'pinout/' + rowData.file
           });
         }}
       />

@@ -26,10 +26,10 @@ class PDFView extends Component {
 
   render() {
     const {params} = this.props.navigation.state;
-    let source = require('../cheatsheets/pinout/esp8266_devkit.pdf');  // ios only
-    if (!__DEV__) {
-      source = {uri: params.uri};
-    }
+    let source = {uri: params.uri};
+    // if (!__DEV__) {
+    //   source = require('../cheatsheets/pinout/esp8266_devkit.pdf');  // ios only
+    // }
 
     return (
       <View style={styles.container}>
