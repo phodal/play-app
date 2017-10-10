@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   Text,
@@ -42,18 +43,24 @@ export default class App extends Component {
   }
 
   static navigationOptions = ({navigation}) => {
-    const {navigate} = navigation;
+    const {params = {}} = navigation.state;
+
     return {
       title: '蓝牙',
       headerRight: (
         <Button
-              title={'扫描'}
-              onPress={() => {
-                navigate('BleView');
-              }}
+          title={'扫描'}
+          onPress={() => {
+            params.startScan();
+          }}
         />
       )
     };
+  };
+
+  static propTypes = {
+    navigation: React.PropTypes.object.isRequired,
+    navigate: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -71,8 +78,8 @@ export default class App extends Component {
         if (result) {
           console.log('Permission is OK');
         } else {
-          PermissionsAndroid.requestPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
-            if (result) {
+          PermissionsAndroid.requestPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((access_result) => {
+            if (access_result) {
               console.log('User accept');
             } else {
               console.log('User refuse');
@@ -81,7 +88,7 @@ export default class App extends Component {
         }
       });
     }
-
+    this.props.navigation.setParams({startScan: this.startScan.bind(this)});
   }
 
   handleAppStateChange(nextAppState) {
