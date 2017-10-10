@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
   ScrollView,
-  ListView,
+  View,
   FlatList
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -134,6 +134,7 @@ class ToolsView extends Component {
             }}
           />
         </List>
+        <View style={{marginBottom: 20}}/>
       </ScrollView>
     );
   }
@@ -141,8 +142,7 @@ class ToolsView extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingBottom: 20
+    flex: 1
   }
 });
 
