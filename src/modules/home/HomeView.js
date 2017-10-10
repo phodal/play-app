@@ -160,6 +160,33 @@ class HomeView extends Component {
     return COLORS[index];
   }
 
+  getIcon(index) {
+    if (index > 17) {
+      return 'build';
+    }
+
+    const ICONS = [
+      'memory',      // Light Green
+      'cast',      // Green
+      'bluetooth',      // Dark Green
+      'computer',      // Mangenta
+      'device-hub',      // Light Purple
+      'devices-other',      // Purple
+      'dock',      // Dark Purple
+      'gamepad',      // Darken
+      'headset',      // Team
+      'keyboard',      // Light Blue
+      'keyboard-voice',      // Blue
+      'router',      // Dark Blue
+      'scanner',      // Yellow
+      'watch',      // Orange
+      'speaker',      // Dark Orange
+      'toys',      // Red
+      'build'      // Dark Red
+    ];
+    return ICONS[index];
+  }
+
   renderCategoryItem({item, index}) {
     const {navigate} = this.props.navigation;
 
@@ -170,7 +197,7 @@ class HomeView extends Component {
         key={this.keyExtractor}>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <View>
-            <Icon name='build' size={normalize(12)} color={'#fff'} />
+            <Icon name={this.getIcon(index)} size={normalize(12)} color={'#fff'} />
           </View>
           <View>
             <Text style={styles.slideTitle}>{ item.title }</Text>
@@ -222,12 +249,11 @@ class HomeView extends Component {
             ref={(carousel) => {
               this.carousel = carousel;
             }}
-            autoplay
             data={this.state.categories.reverse()}
             renderItem={this.renderCategoryItem.bind(this)}
             sliderWidth={deviceWidth}
             itemWidth={deviceWidth * 0.12}
-            firstItem={4}
+            firstItem={3}
           />
         </View>
         <View style={styles.newTitle}>
