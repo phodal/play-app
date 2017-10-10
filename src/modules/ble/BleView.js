@@ -78,6 +78,14 @@ export default class App extends Component {
     this.handlerUpdate = bleManagerEmitter.addListener('BleManagerDidUpdateValueForCharacteristic',
       this.handleUpdateValueForCharacteristic);
 
+    BleManager.enableBluetooth()
+      .then(() => {
+        console.log('The bluetooh is already enabled or the user confirm');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
         if (result) {
