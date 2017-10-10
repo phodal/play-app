@@ -145,7 +145,7 @@ class HomeView extends Component {
       '#603cba',      // Dark Purple
       '#1d1d1d',      // Darken
       '#00aba9',      // Team
-      '#eff4ff',      // Light Blue
+      '#c1bbb2',      // Light Blue
       '#2d89ef',      // Blue
       '#2b5797',      // Dark Blue
       '#ffc40d',      // Yellow
@@ -244,6 +244,7 @@ class HomeView extends Component {
         <View style={styles.carouselView}>
           <FlatList
             horizontal
+            showsHorizontalScrollIndicator={false}
             data={this.state.categories.reverse()}
             renderItem={this.renderCategoryItem.bind(this)}
             keyExtractor={this.keyExtractor}
@@ -312,7 +313,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   slideTitle: {
-    fontSize: normalize(14),
+    fontSize: normalize(13),
     paddingLeft: 6,
     justifyContent: 'center',
     color: '#fff'
