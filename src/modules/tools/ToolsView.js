@@ -115,7 +115,8 @@ class ToolsView extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    paddingBottom: 20
   }
 });
 

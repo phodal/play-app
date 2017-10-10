@@ -77,13 +77,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flexDirection: 'row',
     marginRight: 10,
-    marginTop: 10,
+    marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 5,
     paddingBottom: 5,
     borderRadius: 5,
-    right: 0
+    right: 0,
+    bottom: 0
   }
 });
 
