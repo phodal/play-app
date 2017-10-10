@@ -305,15 +305,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     marginLeft: 10,
-    height: deviceWidth * 0.12,
-    width: deviceWidth * 0.3,
+    height: deviceWidth * 0.1,
+    width: deviceWidth * 0.25,
     borderRadius: 4,
     backgroundColor: 'rgba(56, 68, 62, 0.6)',
     justifyContent: 'center',
     alignItems: 'center'
   },
   slideTitle: {
-    fontSize: normalize(13),
+    fontSize: normalize(10),
     paddingLeft: 6,
     justifyContent: 'center',
     color: '#fff'
