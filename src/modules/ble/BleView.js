@@ -235,7 +235,10 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={{textAlign: 'center', padding: 10}}>{this.state.scanning ? '扫描中...' : ''}</Text>
+        { this.state.scanning
+          ? <Text style={{textAlign: 'center', padding: 10}}>扫描中...</Text>
+          : <View />
+        }
         <ScrollView style={styles.scroll}>
           {(list.length === 0) &&
           <View style={{flex: 1, margin: 20}}>
@@ -284,10 +287,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
-    margin: 10
-  },
-  row: {
-    margin: 10
+    backgroundColor: '#f0f0f0'
   }
 });
