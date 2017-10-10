@@ -4877,6 +4877,10 @@ react-dom@~16.0.0-alpha.6:
     object-assign "^4.1.0"
     prop-types "^15.5.6"
 
+react-native-ble-manager@^6.2.3:
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-ble-manager/-/react-native-ble-manager-6.2.3.tgz#8c75c39ce431a61167672a17b2c66fbb80d2908b"
+
 react-native-device-info@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.11.0.tgz#e96dd0e3f8a7d7e3022c1f441f51fa912fdc7444"
