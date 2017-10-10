@@ -19,9 +19,7 @@ import Carousel from 'react-native-snap-carousel';
 import normalize from '../../wdui/helpers/normalizeText';
 import Loading from '../../wdui/loading/Loading';
 import {URL} from '../../constants';
-import {
-  Button
-} from 'react-native-elements';
+import {Button} from 'react-native-elements';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -262,10 +260,10 @@ class HomeView extends Component {
 
           />
         </View>
-        <View style={styles.newTitle}>
-          <Text style={{paddingLeft: 15}}>最受欢迎玩法</Text>
-        </View>
         <View>
+          <View style={styles.newTitle}>
+            <Text style={{paddingLeft: 15}}>最受欢迎玩法</Text>
+          </View>
           <FlatList
             keyExtractor={this.keyExtractor}
             data={this.state.data.hot}
@@ -274,10 +272,10 @@ class HomeView extends Component {
             onRefresh={this.onRefresh.bind(this)}
           />
         </View>
-        <View style={styles.newTitle}>
-          <Text style={{paddingLeft: 15}}>最新玩法</Text>
-        </View>
         <View>
+          <View style={styles.newTitle}>
+            <Text style={{paddingLeft: 15}}>最新玩法</Text>
+          </View>
           <FlatList
             keyExtractor={this.keyExtractor}
             data={this.state.data.new}
@@ -289,11 +287,13 @@ class HomeView extends Component {
             onRefresh={this.onRefresh.bind(this)}
           />
         </View>
-        <View class={styles.findMore}>
-          <Button backgroundColor={'#00b3fe'}
-                  class={styles.moreButton}
-                  title={'查看更多'}
-                  onPress={() => navigate('Play')} />
+        <View>
+          <View style={styles.findMore}>
+            <Button backgroundColor={'#00b3fe'}
+                    raised
+                    title={'查看更多'}
+                    onPress={() => navigate('Play')} />
+          </View>
         </View>
       </ScrollView>
     );
@@ -351,10 +351,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start'
   },
   findMore: {
-    marginTop: 15,
-    marginBottom: 15
-  },
-  moreButton: {
+    flex: 1,
     marginTop: 15,
     marginBottom: 15
   },
