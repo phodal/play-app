@@ -72,7 +72,7 @@ class ToolsView extends Component {
         onPress={() => {
           navigate('PDFView', {
             title: rowData.name,
-            uri: baseUrl + rowData.file
+            uri: baseUrl + 'programming/' + rowData.file
           });
         }}
       />
@@ -89,7 +89,10 @@ class ToolsView extends Component {
             title={'Arduino 编程速查表'}
             leftIcon={{name: 'developer-board'}}
             onPress={() => {
-              navigate('PDFView', baseUrl + 'programming/arduino-cheat-sheet.pdf');
+              navigate('PDFView', {
+                title: 'Arduino 编程速查表',
+                uri: baseUrl + 'programming/arduino-cheat-sheet.pdf'
+              });
             }}
           />
         </List>
@@ -104,7 +107,10 @@ class ToolsView extends Component {
             title={'ESP8266'}
             leftIcon={{name: 'developer-board'}}
             onPress={() => {
-              navigate('PDFView', baseUrl + 'pinout/esp8266_devkit.pdf');
+              navigate('PDFView', {
+                title: 'ESP8266',
+                uri: baseUrl + 'pinout/esp8266_devkit.pdf'
+              });
             }}
           />
         </List>
@@ -113,7 +119,10 @@ class ToolsView extends Component {
             title={'Raspberry Pi 2 Model B'}
             leftIcon={{name: 'developer-board'}}
             onPress={() => {
-              navigate('PDFView', baseUrl + 'pinout/raspberry-rpi2-model-b.pdf');
+              navigate('PDFView', {
+                title: 'Raspberry Pi',
+                uri: baseUrl + 'pinout/raspberry-rpi2-model-b.pdf'
+              });
             }}
           />
         </List>
