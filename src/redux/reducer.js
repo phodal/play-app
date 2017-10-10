@@ -3,6 +3,7 @@ import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
 import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 // ## Generator Reducer Imports
+import BleReducer from '../modules/ble/BleState';
 import ToolsReducer from '../modules/tools/ToolsState';
 
 const reducers = {

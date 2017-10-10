@@ -55,11 +55,23 @@ class ToolsView extends Component {
     this.renderRow = this.renderRow.bind(this);
   }
 
-  static navigationOptions = {
-    title: '工具',
-    tabBarIcon: (props) => (
-      <Icon name='build' size={24} color={props.tintColor} />
-    )
+  static navigationOptions = ({navigation}) => {
+    const {navigate} = navigation;
+    return {
+      title: '工具',
+      tabBarIcon: (props) => (
+        <Icon name='build' size={24} color={props.tintColor} />
+      ),
+      headerRight: (
+        <Icon name='bluetooth'
+              size={24}
+              color={'#fff'}
+              onPress={() => {
+                navigate('BleView');
+              }}
+        />
+      )
+    };
   };
 
   renderRow(rowData, sectionID) {
