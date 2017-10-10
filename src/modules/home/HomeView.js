@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginTop: 15,
     paddingBottom: 2,
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderBottomColor: 'rgba(0, 0, 0, 0.3)',
     flexDirection: 'row'
   },
