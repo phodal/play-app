@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   Dimensions,
+  Text,
   View
 } from 'react-native';
 
 import Pdf from 'react-native-pdf';
+const deviceWidth = Dimensions.get('window').width;
 
 class PDFView extends Component {
   static displayName = 'PlayDetailView';
@@ -49,6 +51,9 @@ class PDFView extends Component {
                console.log(error);
              }}
              style={styles.pdf}/>
+        <View style={styles.pageTag}>
+          <Text style={{color: '#384452'}}>{this.state.page} / {this.state.pageCount}</Text>
+        </View>
       </View>
     );
   }
@@ -66,6 +71,19 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     width: Dimensions.get('window').width
+  },
+  pageTag: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    flexDirection: 'row',
+    marginRight: 10,
+    marginTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    borderRadius: 5,
+    right: 0
   }
 });
 
