@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -30,7 +31,6 @@
 		40489B5416B9442ABED7E6E6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE68DE25BB1E494D94422548 /* libsqlite3.0.tbd */; };
 		41BBAFACD2904D4E8B92AC25 /* libRCTPdf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C178FA0AE58E4A1AA1AE6CB6 /* libRCTPdf.a */; };
 		5726EEBC7B134DC09413973B /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95582C326857452FB16C3210 /* libFastImage.a */; };
-		5E9157361DD0AC6A00FF2AA8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		626EFDE897084BDC96C483EA /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AD05CBB27924F198DC4BBE5 /* Feather.ttf */; };
 		736EE003A8764109AB2ACD18 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964F260EB3574A79AF45E2D6 /* SystemConfiguration.framework */; };
 		76C27BBF52494A01BF642ECD /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B50F6964A1C42BCA714D472 /* MaterialIcons.ttf */; };
@@ -44,6 +44,7 @@
 		C966ACD8E01647229A4318A2 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16647CED20BA4736BAB86E98 /* libRNFetchBlob.a */; };
 		DE1B3E808D534E7491C40551 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDC7FFB304A4B26BA90D73C /* SimpleLineIcons.ttf */; };
 		E56CD4FD7310467592FB49AA /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9C27440A0547EDB3B0C7B4 /* libRNSpinkit.a */; };
+		E8A035A71F8E0C3A00DEF4B0 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = E8DFF42B1F8C62A800838D2A /* assets */; };
 		F10B14A302754791AC4887C2 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6448131701643E2ABD08175 /* Zocial.ttf */; };
 		F350D25EAB6C4B228A3A3553 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 909915B6F6B0438AAF741A24 /* Foundation.ttf */; };
 /* End PBXBuildFile section */
@@ -400,7 +401,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
-				5E9157361DD0AC6A00FF2AA8 /* (null) in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -559,7 +559,6 @@
 				4D9C27440A0547EDB3B0C7B4 /* libRNSpinkit.a */,
 				95582C326857452FB16C3210 /* libFastImage.a */,
 				66F883E7A2B840F2A93C124A /* libRNDeviceInfo.a */,
-				80D8CCFC8A67424CA16EEAA9 /* libSplashScreen.a */,
 				668B5CBB709F4191AEB5898E /* libRCTGoogleAnalyticsBridge.a */,
 				C178FA0AE58E4A1AA1AE6CB6 /* libRCTPdf.a */,
 				16647CED20BA4736BAB86E98 /* libRNFetchBlob.a */,
@@ -1152,6 +1151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E8A035A71F8E0C3A00DEF4B0 /* assets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				8CF9215C7601418A9196E9B5 /* Entypo.ttf in Resources */,
 				071590C08883478D974063E7 /* EvilIcons.ttf in Resources */,
@@ -1235,9 +1235,7 @@
 				);
 				INFOPLIST_FILE = Play/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1272,9 +1270,7 @@
 				);
 				INFOPLIST_FILE = Play/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -9,7 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {List, ListItem} from 'react-native-elements';
 
-const baseUrl = 'bundle-assets://cheatsheets/';
+const baseUrl = 'bundle-assets://';
 
 const ARDUINO_PINOUT = [{
   name: 'Arduino Uno',
@@ -80,7 +80,7 @@ class ToolsView extends Component {
         onPress={() => {
           navigate('PDFView', {
             title: item.name,
-            uri: baseUrl + 'pinout/' + item.file
+            uri: baseUrl + item.file
           });
         }}
       />
@@ -99,7 +99,7 @@ class ToolsView extends Component {
             onPress={() => {
               navigate('PDFView', {
                 title: 'Arduino 编程速查表',
-                uri: baseUrl + 'programming/arduino-cheat-sheet.pdf'
+                uri: baseUrl + 'arduino-cheat-sheet.pdf'
               });
             }}
           />
@@ -118,7 +118,7 @@ class ToolsView extends Component {
             onPress={() => {
               navigate('PDFView', {
                 title: 'ESP8266',
-                uri: baseUrl + 'pinout/esp8266_devkit.pdf'
+                uri: baseUrl + 'esp8266_devkit.pdf'
               });
             }}
           />
@@ -130,7 +130,7 @@ class ToolsView extends Component {
             onPress={() => {
               navigate('PDFView', {
                 title: 'Raspberry Pi',
-                uri: baseUrl + 'pinout/raspberry-rpi2-model-b.pdf'
+                uri: baseUrl + 'raspberry-rpi2-model-b.pdf'
               });
             }}
           />

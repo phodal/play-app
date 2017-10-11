@@ -66,6 +66,5 @@ ios/PepperoniAppTemplate/main.jsbundle
 ios/PepperoniAppTemplate/main.jsbundle.meta
 main.jsbundle
 main.jsbundle.meta
-src/pdf-assets/*
-android/app/src/main/assets/cheatsheets/*
-ios/assets/*
+android/app/src/main/assets/*.pdf
+ios/assets/*.pdf
