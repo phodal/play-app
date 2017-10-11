@@ -67,9 +67,7 @@ class PlayView extends Component {
     return (
       <View
         style={{
-          paddingVertical: 20,
-          borderTopWidth: 1,
-          borderColor: '#CED0CE'
+          paddingVertical: 20
         }}
       >
         <ActivityIndicator animating size='large' />
