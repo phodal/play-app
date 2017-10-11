@@ -58,7 +58,7 @@
     "react-native-fast-image": "^1.0.0",
     "react-native-fetch-blob": "^0.10.8",
     "react-native-google-analytics-bridge": "^5.3.3",
-    "react-native-htmlview": "^0.12.0",
+    "react-native-htmlview": "git+https://github.com/jsdf/react-native-htmlview.git#0.12.1",
     "react-native-pdf": "^1.3.4",
     "react-native-photo-view": "^1.5.2",
     "react-native-spinkit": "^1.1.1",
