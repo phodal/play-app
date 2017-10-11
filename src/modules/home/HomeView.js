@@ -25,11 +25,24 @@ const deviceWidth = Dimensions.get('window').width;
 class HomeView extends Component {
   static displayName = 'HomeView';
 
-  static navigationOptions = {
-    title: '首页推荐',
-    tabBarIcon: (props) => (
-        <Icon name='home' size={24} color={props.tintColor} />
+  static navigationOptions = ({navigation}) => {
+    const {navigate} = navigation;
+    return {
+      title: '首页推荐',
+      tabBarIcon: (props) => (
+        <Icon name='home' size={24} color={props.tintColor}/>
+      ),
+      headerRight: (
+        <Icon name='search'
+              size={24}
+              color={'#fff'}
+              style={{paddingRight: 10}}
+              onPress={() => {
+                navigate('BleView');
+              }}
+        />
       )
+    };
   };
 
   static propTypes = {

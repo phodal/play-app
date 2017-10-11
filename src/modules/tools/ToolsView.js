@@ -60,6 +60,7 @@ class ToolsView extends Component {
         <Icon name='bluetooth'
               size={24}
               color={'#fff'}
+              style={{paddingRight: 10}}
               onPress={() => {
                 navigate('BleView');
               }}
