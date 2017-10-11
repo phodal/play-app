@@ -41,7 +41,7 @@ class ToolsView extends Component {
   static displayName = 'ToolsView';
 
   static propTypes = {
-    navigation: React.PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     navigate: PropTypes.func.isRequired
   };
 

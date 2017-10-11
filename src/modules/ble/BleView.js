@@ -61,7 +61,7 @@ export default class App extends Component {
   };
 
   static propTypes = {
-    navigation: React.PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     navigate: PropTypes.func.isRequired
   };
 
