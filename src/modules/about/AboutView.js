@@ -36,6 +36,12 @@ class AboutView extends Component {
       <View>
         <List>
           <ListItem
+            title={'访问网站'}
+            onPress={() => {
+              Linking.openURL('https://www.wandianshenme.com/');
+            }}
+          />
+          <ListItem
             title={'联系我们'}
             onPress={() => {
               Linking.openURL('https://www.wandianshenme.com/contact/');
