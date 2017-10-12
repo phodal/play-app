@@ -41,6 +41,12 @@ class AboutView extends Component {
               Linking.openURL('https://www.wandianshenme.com/contact/');
             }}
           />
+          <ListItem
+            title={'GitHub 访问'}
+            onPress={() => {
+              Linking.openURL('https://github.com/phodal/play-app');
+            }}
+          />
           <ListItem title={'当前版本'} rightTitle={DeviceInfo.getVersion()}/>
         </List>
       </View>
