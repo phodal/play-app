@@ -19,7 +19,6 @@ export const MainScreenNavigator = TabNavigator(
   {
     Home: {screen: HomeViewContainer},
     Play: {screen: PlayViewContainer},
-    Guide: {screen: GuideViewContainer},
     Tools: {screen: ToolsViewContainer},
     About: {screen: AboutViewContainer}
   },
