@@ -258,7 +258,7 @@ class HomeView extends Component {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={this.state.categories.reverse()}
+            data={this.state.categories}
             renderItem={this.renderCategoryItem.bind(this)}
             keyExtractor={this.keyExtractor}
           />
