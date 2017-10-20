@@ -3,10 +3,8 @@ import {TabNavigator, StackNavigator, TabBarBottom} from 'react-navigation';
 
 import HomeViewContainer from '../home/HomeViewContainer';
 import PlayViewContainer from '../play/PlayViewContainer';
-import GuideViewContainer from '../guide/GuideViewContainer';
 import AboutViewContainer from '../about/AboutViewContainer';
 import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
-import GuideDetailContainer from '../guide/GuideDetailContainer';
 import ToolsViewContainer from '../tools/ToolsViewContainer';
 import PDFView from '../../wdui/PDFView';
 import BleView from '../ble/BleViewContainer';
@@ -54,10 +52,6 @@ const AppNavigator = StackNavigator({
     screen: PlayViewContainer,
     path: 'play/'
   },
-  Guide: {
-    path: 'play/',
-    screen: GuideViewContainer
-  },
   About: {
     path: 'about/',
     screen: AboutViewContainer
@@ -65,10 +59,6 @@ const AppNavigator = StackNavigator({
   PlayDetailView: {
     path: 'play/:slug',
     screen: PlayDetailViewContainer
-  },
-  GuideDetailView: {
-    path: 'play/category/:category',
-    screen: GuideDetailContainer
   },
   ToolsView: {
     path: 'tools/',
