@@ -27,14 +27,18 @@ class AboutView extends Component {
     super(props);
   }
 
-  open = () => {
-    this.props.navigate({routeName: 'About'});
-  };
-
   render() {
+    const {navigate} = this.props.navigation;
+
     return (
       <View>
         <List>
+          <ListItem
+            title={'登录'}
+            onPress={() => {
+              navigate('LoginView');
+            }}
+          />
           <ListItem
             title={'访问网站'}
             onPress={() => {

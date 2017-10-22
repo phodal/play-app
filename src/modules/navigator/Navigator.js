@@ -8,6 +8,7 @@ import PlayDetailViewContainer from '../play/PlayDetailViewContainer';
 import ToolsViewContainer from '../tools/ToolsViewContainer';
 import PDFView from '../../wdui/PDFView';
 import BleView from '../ble/BleViewContainer';
+import LoginView from '../login/LoginViewContainer';
 
 const headerColor = '#384452';
 const activeColor = '#fff';
@@ -71,6 +72,10 @@ const AppNavigator = StackNavigator({
   BleView: {
     path: 'ble/',
     screen: BleView
+  },
+  LoginView: {
+    path: 'accounts/login/',
+    screen: LoginView
   }
 }, {
   navigationOptions: {
