@@ -1,23 +1,18 @@
 import {Map} from 'immutable';
 
-// Initial state
-const initialState = Map({
+export const RESET_STATE = 'LoginState/RESET';
+export const INITIALIZE_STATE = 'LoginState/INITIALIZE';
 
+const initialState = Map({
+  isLogin: false,
+  token: ''
 });
 
-// Actions
-const ACTION = 'BleState/ACTION';
-
-// Action creators
-export function act() {
-  return {type: ACTION};
-}
-
-// Reducer
-export default function BleStateReducer(state = initialState, action = {}) {
+export default function AccountStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case ACTION:
-      return state;
+    case INITIALIZE_STATE:
+    case RESET_STATE:
+      return state.set('isLogin', true);
     default:
       return state;
   }
