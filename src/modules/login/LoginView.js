@@ -2,16 +2,32 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 
-import * as Tcomb from 'tcomb-form-native';
-const Form = Tcomb.form.Form;
+import * as FormValidation from 'tcomb-form-native';
+const Form = FormValidation.form.Form;
 
 const window = Dimensions.get('window');
 
-const Person = Tcomb.struct({
-  name: Tcomb.String,
-  password: Tcomb.String
+const User = FormValidation.struct({
+  email: FormValidation.String,
+  password: FormValidation.String
 });
-const options = {}; // optional rendering options (see documentation)
+
+const options = {
+  fields: {
+    email: {
+      label: '用户名',
+      error: '请输入有效的用户名',
+      autoCapitalize: 'none',
+      clearButtonMode: 'while-editing'
+    },
+    password: {
+      label: '密码',
+      error: '密码应该太于六位',
+      clearButtonMode: 'while-editing',
+      secureTextEntry: true
+    }
+  }
+};
 
 export default class App extends Component {
   constructor(props) {
@@ -23,7 +39,8 @@ export default class App extends Component {
       <View style={styles.container}>
         <View style={styles.formContainer}>
           <Form
-            type={Person}
+            ref={(form) => { this.form = form; }}
+            type={User}
             options={options}
           />
           <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
