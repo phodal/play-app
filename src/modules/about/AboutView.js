@@ -39,12 +39,8 @@ class AboutView extends Component {
               navigate('LoginView');
             }}
           />
-          <ListItem
-            title={'访问网站'}
-            onPress={() => {
-              Linking.openURL('https://www.wandianshenme.com/');
-            }}
-          />
+        </List>
+        <List>
           <ListItem
             title={'联系我们'}
             onPress={() => {
@@ -55,6 +51,12 @@ class AboutView extends Component {
             title={'GitHub 访问'}
             onPress={() => {
               Linking.openURL('https://github.com/phodal/play-app');
+            }}
+          />
+          <ListItem
+            title={'访问网站'}
+            onPress={() => {
+              Linking.openURL('https://www.wandianshenme.com/');
             }}
           />
           <ListItem title={'当前版本'} rightTitle={DeviceInfo.getVersion()}/>
