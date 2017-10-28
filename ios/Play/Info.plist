@@ -26,7 +26,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>
-			<string></string>
+			<string/>
 			<key>CFBundleURLName</key>
 			<string>https</string>
 			<key>CFBundleURLSchemes</key>
@@ -53,7 +53,7 @@
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>App 需要您的同意,才能访问蓝牙</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>

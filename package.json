@@ -39,6 +39,7 @@
     ]
   },
   "dependencies": {
+    "@remobile/react-native-toast": "^1.0.7",
     "axios": "^0.16.2",
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",

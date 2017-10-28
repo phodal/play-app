@@ -159,6 +159,7 @@ android {
 }
 
 dependencies {
+    compile project(':@remobile/react-native-toast')
     compile project(':react-native-ble-manager')
     compile project(':react-native-photo-view')
     compile project(':react-native-fetch-blob')

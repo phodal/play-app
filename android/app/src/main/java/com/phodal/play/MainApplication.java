@@ -3,6 +3,7 @@ package com.phodal.play;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.remobile.toast.RCTToastPackage;
 import it.innove.BleManagerPackage;
 import com.reactnative.photoview.PhotoViewPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
@@ -32,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RCTToastPackage(),
         new BleManagerPackage(),
         new PhotoViewPackage(),
         new RNFetchBlobPackage(),
