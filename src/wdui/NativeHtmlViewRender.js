@@ -46,15 +46,13 @@ class NativeHtmlViewRender extends Component {
 
 const styles = StyleSheet.create({
   pre: {
-    padding: 5,
+    padding: 10,
     backgroundColor: '#f8f8f8',
-    fontSize: normalize(14)
+    fontSize: normalize(12)
   },
   code: {
     color: '#444',
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5,
-    fontSize: normalize(14)
+    borderRadius: 5
   },
   htmlView: {
     padding: 10,
