@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
-  StyleSheet,
-  Image,
-  Dimensions
-} from 'react-native';
+import {Dimensions, Image, PixelRatio, StyleSheet} from 'react-native';
 import HTMLView from 'react-native-htmlview';
-const deviceWidth = Dimensions.get('window').width;
-
 import normalize from './helpers/normalizeText';
+
+const deviceWidth = Dimensions.get('window').width;
+let widthWithRatio = PixelRatio.getPixelSizeForLayoutSize(deviceWidth);                      //返回字体大小缩放比例
 
 // TODO: add syntax-highlighter support
 // eslint-disable-next-line consistent-return,no-unused-vars
@@ -17,7 +14,8 @@ function renderNode(node, index, siblings, parent, defaultRenderer) {
     return (
       <Image
         key={index}
-        style={{flex: 1, width: deviceWidth, height: deviceWidth * 0.6, resizeMode: 'cover'}}
+        style={{flex: 1, width: widthWithRatio, height: widthWithRatio * 0.618}}
+        resizeMode={'contain'}
         source={{
           uri: node.attribs.src
         }}
