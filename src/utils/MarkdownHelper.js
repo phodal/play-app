@@ -6,14 +6,16 @@ export default class MarkdownHelper {
     if (!isString(str)) {
       return '';
     }
+    console.log(options);
     let paddingWidth = 20;
     let width = options.width - paddingWidth;
     let height = width * 0.6;
     let html = md.render(str);
     html = html.replace(new RegExp('<p>', 'g'), '<span>')
-        .replace(new RegExp('</p>', 'g'), '</span>')
-        .replace('src="/static/media/uploads/',
-          `width="${width}" height="${height}" src="https://www.wandianshenme.com/static/media/uploads/`);
+      .replace(new RegExp('</p>', 'g'), '</span>')
+      .replace(new RegExp('src="/static/media/uploads/', 'g'),
+        `width="${width}" height="${height}" src="https://www.wandianshenme.com/static/media/uploads/`);
+
     return html;
   }
 }
