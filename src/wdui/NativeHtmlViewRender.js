@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Dimensions, Image, PixelRatio, StyleSheet} from 'react-native';
+import {Platform, Dimensions, Image, PixelRatio, StyleSheet} from 'react-native';
 import HTMLView from 'react-native-htmlview';
 import normalize from './helpers/normalizeText';
 
-const deviceWidth = Dimensions.get('window').width;
-let widthWithRatio = PixelRatio.getPixelSizeForLayoutSize(deviceWidth);                      //返回字体大小缩放比例
+let deviceWidth = Dimensions.get('window').width;
+if (Platform.OS === 'android') {
+  deviceWidth = PixelRatio.getPixelSizeForLayoutSize(deviceWidth);
+}
 
 // TODO: add syntax-highlighter support
 // eslint-disable-next-line consistent-return,no-unused-vars
@@ -14,7 +16,7 @@ function renderNode(node, index, siblings, parent, defaultRenderer) {
     return (
       <Image
         key={index}
-        style={{flex: 1, width: widthWithRatio, height: widthWithRatio * 0.618}}
+        style={{flex: 1, width: deviceWidth, height: deviceWidth * 0.618}}
         resizeMode={'contain'}
         source={{
           uri: node.attribs.src
@@ -50,16 +52,17 @@ class NativeHtmlViewRender extends Component {
 
 const styles = StyleSheet.create({
   pre: {
-    padding: 10,
+    paddingTop: 10,
+    paddingLeft: 10,
     backgroundColor: '#f8f8f8',
-    fontSize: normalize(12)
-  },
-  code: {
-    color: '#444',
+    fontSize: normalize(12),
     borderRadius: 5
   },
+  code: {
+    color: '#444'
+  },
   htmlView: {
-    padding: 20,
+    padding: 10,
     width: deviceWidth,
     backgroundColor: '#fff'
   },
