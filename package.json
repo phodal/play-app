@@ -1,13 +1,13 @@
 {
   "name": "Play",
-  "author": "Futurice",
+  "author": "Phodal Huang",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
-  "homepage": "http://getpepperoni.com",
-  "bugs": "https://github.com/futurice/pepperoni-app-kit/issues",
+  "homepage": "https://www.wandianshenme.com/",
+  "bugs": "https://github.com/phodal/play-app/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/futurice/pepperoni-app-kit"
+    "url": "https://github.com/phodal/play-app"
   },
   "keywords": [
     "React Native",
@@ -16,7 +16,7 @@
     "Redux",
     "Auth0"
   ],
-  "version": "0.3.2",
+  "version": "0.4.0",
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
