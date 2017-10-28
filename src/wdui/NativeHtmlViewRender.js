@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   htmlView: {
-    padding: 10,
+    padding: 20,
+    width: deviceWidth,
     backgroundColor: '#fff'
   },
   a: {
