@@ -93,13 +93,17 @@ class HomeView extends Component {
     }
 
     const route = url.replace(/.*?:\/\//g, '');
-    const id = route.match(/\/([^\/]+)\/?$/)[1];
-    const host = route.split('/')[0];
-    const routeName = route.split('/')[1];
-    const slug = route.split('/')[2];
+    let routeArray = route.split('/');
+    if (routeArray.length <= 1) {
+      return;
+    }
+    const routeName = routeArray[1];
 
-    console.log(id, host ,routeName, slug);
-    if (routeName === 'play') {
+    console.log(routeArray.length);
+    if (routeArray.length === 3 && routeName === 'play') {
+      navigate('Play');
+    } else if (routeArray.length === 4) {
+      const slug = routeArray[2];
       navigate('PlayDetailView', {slug});
     }
   };
