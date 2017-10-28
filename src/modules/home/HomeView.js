@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
+  Dimensions,
   FlatList,
-  StyleSheet,
-  View,
-  ScrollView,
-  Text,
+  ImageBackground,
   Linking,
   Platform,
-  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
   TouchableHighlight,
-  ImageBackground
+  View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
@@ -83,7 +83,6 @@ class HomeView extends Component {
 
   handleOpenURL = (event) => {
     this.navigate(event.url);
-    console.log(event.url);
   };
 
   navigate = (url) => {
