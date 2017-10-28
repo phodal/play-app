@@ -1,24 +1,30 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
-  StyleSheet
+  StyleSheet,
+  Image,
+  Dimensions
 } from 'react-native';
 import HTMLView from 'react-native-htmlview';
+const deviceWidth = Dimensions.get('window').width;
 
 import normalize from './helpers/normalizeText';
 
 // TODO: add syntax-highlighter support
-// // // eslint-disable-next-line consistent-return,no-unused-vars
-// // function renderNode(node, index, siblings, parent, defaultRenderer) {
-// //   if (node.name === 'pre') {
-// //     const codeString = node.children[0].children[0].data + '';
-// //     return (
-// //       <View style={styles.container} key={index}>
-// //         {codeString}
-// //       </View>
-// //     );
-// //   }
-// }
+// eslint-disable-next-line consistent-return,no-unused-vars
+function renderNode(node, index, siblings, parent, defaultRenderer) {
+  if (node.name === 'img') {
+    return (
+      <Image
+        key={index}
+        style={{flex: 1, width: deviceWidth, height: deviceWidth * 0.6, resizeMode: 'cover'}}
+        source={{
+          uri: node.attribs.src
+        }}
+      />
+    );
+  }
+}
 
 class NativeHtmlViewRender extends Component {
   static propTypes = {
@@ -37,7 +43,7 @@ class NativeHtmlViewRender extends Component {
           value={html}
           style={styles.htmlView}
           stylesheet={styles}
-          // renderNode={renderNode}
+          renderNode={renderNode}
           addLineBreaks={false}
         />
     );
