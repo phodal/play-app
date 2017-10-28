@@ -58,7 +58,7 @@ const AppNavigator = StackNavigator({
     screen: AboutViewContainer
   },
   PlayDetailView: {
-    path: 'play/:slug',
+    path: 'play/:slug/',
     screen: PlayDetailViewContainer
   },
   ToolsView: {

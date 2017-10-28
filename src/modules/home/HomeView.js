@@ -6,6 +6,8 @@ import {
   View,
   ScrollView,
   Text,
+  Linking,
+  Platform,
   Dimensions,
   TouchableHighlight,
   ImageBackground
@@ -216,6 +218,37 @@ class HomeView extends Component {
       </TouchableHighlight>
     );
   }
+
+  componentDidMount() { // B
+    if (Platform.OS === 'android') {
+      Linking.getInitialURL().then(url => {
+        this.navigate(url);
+      });
+    } else {
+      Linking.addEventListener('url', this.handleOpenURL);
+    }
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  handleOpenURL = (event) => {
+    this.navigate(event.url);
+    console.log(event.url);
+  };
+
+  navigate = (url) => {
+    const {navigate} = this.props.navigation;
+    const route = url.replace(/.*?:\/\//g, '');
+    const id = route.match(/\/([^\/]+)\/?$/)[1];
+    const routeName = route.split('/')[0];
+
+    console.log(routeName);
+    if (routeName === 'play') {
+      navigate('Play', {id});
+    }
+  };
 
   render() {
     if (this.state.loading || this.state.isLoadingCategory) {
