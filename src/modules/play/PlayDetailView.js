@@ -39,11 +39,14 @@ class PlayDetailView extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
     if (this.props.navigation.state.params && this.props.navigation.state.params.slug) {
+      this.setState({
+        loading: true
+      })
       let slug = this.props.navigation.state.params.slug;
       axios.get(URL.PLAY + '?slug=' + slug)
         .then(response => {
+          this.props.navigation.setParams({title: response.data.results[0].title});
           this.setState({
             data: response.data.results[0],
             loading: false
@@ -54,7 +57,7 @@ class PlayDetailView extends Component {
 
   render() {
     let data = this.state.data;
-    if (!data && !data.content) {
+    if (!data.content || this.state.loading) {
       return <Loading text={'数据加载中'} />;
     }
     const htmlContent = MarkdownHelper.convert(data.content, {width: deviceWidth});
