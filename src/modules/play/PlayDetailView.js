@@ -39,11 +39,12 @@ class PlayDetailView extends Component {
   }
 
   componentWillMount() {
-    if (this.props.navigation.state.params && this.props.navigation.state.params.slug) {
+    let params = this.props.navigation.state.params;
+    if (params && !params.content && params.slug) {
       this.setState({
         loading: true
       })
-      let slug = this.props.navigation.state.params.slug;
+      let slug = params.slug;
       axios.get(URL.PLAY + '?slug=' + slug)
         .then(response => {
           this.props.navigation.setParams({title: response.data.results[0].title});
