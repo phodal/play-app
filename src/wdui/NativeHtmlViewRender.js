@@ -16,7 +16,7 @@ function renderNode(node, index, siblings, parent, defaultRenderer) {
     return (
       <Image
         key={index}
-        style={{flex: 1, width: deviceWidth, height: deviceWidth * 0.618}}
+        style={styles.img}
         resizeMode={'contain'}
         source={{
           uri: node.attribs.src
@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
   },
   htmlView: {
     padding: 10,
-    width: deviceWidth,
     backgroundColor: '#fff'
   },
   a: {
@@ -73,6 +72,13 @@ const styles = StyleSheet.create({
   li: {
     color: '#384452',
     fontSize: normalize(14)
+  },
+  img: {
+    flex: 1,
+    width: deviceWidth,
+    height: deviceWidth * 0.618,
+    padding: 10,
+    margin: 10,
   },
   p: {
     color: '#384452',
